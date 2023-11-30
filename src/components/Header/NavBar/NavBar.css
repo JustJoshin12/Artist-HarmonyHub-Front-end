@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navbar {
+    @apply flex justify-evenly col-span-2;
+  }
+
+  .navbar__button {
+    @apply text-base text-white font-semibold;
+  }
+
+  .navbar__button-active {
+    @apply text-[#cd4bdf]
+  }
+}

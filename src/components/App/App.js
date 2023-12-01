@@ -1,10 +1,11 @@
-import './App.css';
 import Header from "../Header/Header";
+import Main from "../Main/Main";
 
 function App() {
   return (
-    <div className="app">
-     <Header/>
+    <div className="bg-black p-10 text-white flex flex-col">
+      <Header />
+      <Main />
     </div>
   );
 }

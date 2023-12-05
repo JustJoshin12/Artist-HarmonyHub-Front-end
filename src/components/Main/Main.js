@@ -1,11 +1,11 @@
-import TopArtist from "./TopArtist/TopArtist";
-import NewReleases from "./NewReleases/NewReleases";
+import HomePage from "./HomePage/HomePage";
+import SearchArtist from "./SearchArtistPage/SearchArtistPage";
 
 function Main() {
   return (
-    <main className=" mt-20 max-w-[1400px] mx-auto">
-      <TopArtist />
-      <NewReleases/>
+    <main className=" mt-20 max-w-[1300px] mx-auto">
+    <SearchArtist/>
+    
     </main>
   );
 }

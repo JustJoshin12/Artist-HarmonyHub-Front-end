@@ -1,7 +1,7 @@
 function AlbumIcon({ data }) {
   return (
-    <li>
-      <div className="w-[350px]">
+    <li className="max-w-350 sm:max-w-xs">
+      <div className="">
         <img src={data.image} alt={data.name} className="w-[100%] rounded-lg h-[220px]" />
         <div className="px-6 pt-2">
           <p className=" text-lg font-semibold font-[Poppins]">{data.name}</p>

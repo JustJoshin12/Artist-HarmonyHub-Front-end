@@ -23,7 +23,7 @@ function SearchArtist() {
       </div>
      <ArtistHero/>
      <TopTracks/>
-     <div> 
+     <div className="my-[90px] mx-4"> 
       <p className="text-4xl font-[Poppins] font-semibold mb-10">Albums</p>
       <ul className="grid mb-14 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {artistAlbums.map((album) => {

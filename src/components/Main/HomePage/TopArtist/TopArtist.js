@@ -10,8 +10,8 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 function TopArtist() {
   return (
-    <div className=" px-6 py-5 rounded-lg mx-20px">
-      <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-5">
+    <div className=" px-6 py-5 rounded-lg mx-20px mt-[50px]">
+      <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
         Top Artist <span className="text-sm font-light ml-7">This week:</span>
       </h3>
 

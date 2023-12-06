@@ -1,4 +1,6 @@
-function NavBar() {
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+function NavBar({onOpen}) {
   return (
     <div className="navbar mt-5 bg-black col-span-2">
       <div className="navbar-start">
@@ -21,21 +23,28 @@ function NavBar() {
           </div>
           <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
-              <button>Home</button>
+              <button>
+                <Link to="/">Home</Link>
+              </button>
             </li>
             <li>
-              <h2>Favorites</h2>
+              <h2>Profile</h2>
               <ul>
                 <li>
-                  <button>Favorite Artist</button>
+                  <button onClick={onOpen}>Favorites</button>
                 </li>
                 <li>
-                  <button>Favorite Albums</button>
+                  <button>Edit Profile</button>
+                </li>
+                <li>
+                  <button>Log Out</button>
                 </li>
               </ul>
             </li>
             <li>
-              <button>Search Artist</button>
+              <button>
+                <Link to="/artist">Search Artist</Link>
+              </button>
             </li>
           </ul>
         </div>
@@ -43,32 +52,46 @@ function NavBar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
-            <button className="btn btn-ghost btn-wide text-2xl">Home</button>
+            <Link to="/">
+              <button className="btn btn-ghost btn-wide text-2xl">Home</button>
+            </Link>
           </li>
           <li>
             <details>
-              <summary className="btn btn-ghost btn-wide text-2xl">Favorites</summary>
-              <ul className="p-2 text-black">
+              <summary className="btn btn-ghost btn-wide text-2xl">
+                Profile
+              </summary>
+              <ul className="p-2 text-black left-[50px]">
                 <li>
-                  <button className="font-['Poppins'] text-lg font-semibold">Favorite Artists</button>
+                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
+                    Favorites
+                  </button>
                 </li>
                 <li>
-                  <button className="font-['Poppins'] text-lg font-semibold">Favorite Albums</button>
+                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center" onClick={onOpen}>
+                    Edit Profile
+                  </button>
+                </li>
+                <li>
+                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
+                    Log Out
+                  </button>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <button className="btn btn-ghost btn-wide text-2xl">Search Artist</button>
+            <Link to="/artist">
+              <button className="btn btn-ghost btn-wide text-2xl">
+                Search Artist
+              </button>
+            </Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        
-      </div>
+      <div className="navbar-end"></div>
     </div>
   );
 }
 
 export default NavBar;
-

@@ -3,7 +3,7 @@ import { NewReleaseData } from "../../../../utils/constant"
 
 function NewReleases () {
     return (
-        <section className="mx-6 py-5 mb-14">
+        <section className="mx-6 py-5 my-14">
         <h3 className="mb-9 text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4">
           New Releases
         </h3>

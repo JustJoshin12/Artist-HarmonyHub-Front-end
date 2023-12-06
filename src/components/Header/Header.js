@@ -2,7 +2,7 @@ import Logo from "../../images/websiteLogo.png";
 import NavBar from "./NavBar/NavBar";
 import UserInfoIcon from "./UserInfo/UserInfo";
 
-function Header() {
+function Header({onEditModal}) {
   return (
     <header className="grid grid-cols-2 grid-rows-2 px-14">
       <div className="flex items-center">
@@ -10,7 +10,7 @@ function Header() {
         <img className="w-20 h-20" src={Logo} alt="website logo" />
       </div>
       <UserInfoIcon />
-      <NavBar />
+      <NavBar onOpen={onEditModal}/>
     </header>
   );
 }

@@ -8,7 +8,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 function TopTracks() {
   return (
-    <div className="mt-[60px]">
+    <div className="mt-[100px]">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">Top Tracks</p>
       <Swiper
         breakpoints={{

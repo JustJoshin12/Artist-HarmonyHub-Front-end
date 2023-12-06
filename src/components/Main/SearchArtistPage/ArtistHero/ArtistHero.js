@@ -1,7 +1,7 @@
 function ArtistHero () {
     return(
-        <div className="mt-[100px]">
-        <div className="hero bg-indigo-500/50 rounded-full">
+        <div className="mt-[150px]">
+        <div className="hero bg-violet-800/50 rounded-full border-2 border-white">
           <div className="hero-content flex-col lg:flex-row">
             <img
               src="https://media.pitchfork.com/photos/618d8009d8d6ddc92b6fbab8/1:1/w_1922,h_1922,c_limit/Juice-WRLD.jpg"

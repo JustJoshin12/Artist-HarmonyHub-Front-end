@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.f77e4484.css",
-    "main.js": "/static/js/main.bd4ce61a.js",
-    "static/js/787.be1fdb99.chunk.js": "/static/js/787.be1fdb99.chunk.js",
-    "static/media/websiteLogo.png": "/static/media/websiteLogo.0d2d2a94c747b9f72ed2.png",
-    "static/media/Poppins-Regular.ttf": "/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
-    "static/media/Poppins-ExtraBold.ttf": "/static/media/Poppins-ExtraBold.01849ee091e1762a5dd5.ttf",
-    "static/media/Oswald-SemiBold.ttf": "/static/media/Oswald-SemiBold.ddc9cdcf259f8e6a1d35.ttf",
-    "index.html": "/index.html",
-    "main.f77e4484.css.map": "/static/css/main.f77e4484.css.map",
-    "main.bd4ce61a.js.map": "/static/js/main.bd4ce61a.js.map",
-    "787.be1fdb99.chunk.js.map": "/static/js/787.be1fdb99.chunk.js.map"
+    "main.css": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/css/main.02952ea0.css",
+    "main.js": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/js/main.bf60a3b0.js",
+    "static/js/787.be1fdb99.chunk.js": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/js/787.be1fdb99.chunk.js",
+    "static/media/websiteLogo.png": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/media/websiteLogo.0d2d2a94c747b9f72ed2.png",
+    "static/media/Poppins-Regular.ttf": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-ExtraBold.ttf": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/media/Poppins-ExtraBold.01849ee091e1762a5dd5.ttf",
+    "static/media/Oswald-SemiBold.ttf": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/media/Oswald-SemiBold.ddc9cdcf259f8e6a1d35.ttf",
+    "index.html": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/index.html",
+    "main.02952ea0.css.map": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/css/main.02952ea0.css.map",
+    "main.bf60a3b0.js.map": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/js/main.bf60a3b0.js.map",
+    "787.be1fdb99.chunk.js.map": "/JustJoshin12/Artist-HarmonyHub-Front-end.git/static/js/787.be1fdb99.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f77e4484.css",
-    "static/js/main.bd4ce61a.js"
+    "static/css/main.02952ea0.css",
+    "static/js/main.bf60a3b0.js"
   ]
 }

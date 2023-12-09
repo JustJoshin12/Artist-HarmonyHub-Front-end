@@ -22,7 +22,7 @@ function RelatedArtists({token, id}) {
     })
   },[token,id])
 
-  console.log(relatedArtists)
+  
 
 
   return (

@@ -34,7 +34,8 @@ function SearchArtist({token}) {
         <div>
           <ArtistHero id={searchHistory} token={token}/>
           <TopTracks id={searchHistory} token={token}/>
-          
+          <ArtistAlbums id={searchHistory} token={token}/>
+          <RelatedArtists id={searchHistory} token={token}/>
         </div>
       )}
     </div>

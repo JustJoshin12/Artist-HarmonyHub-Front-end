@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { topArtist } from "../../../../utils/constant";
 import ArtistIcon from "../../HomePage/TopArtist/ArtistIcon/ArtistIcon";
+import { getRelatedArtist } from "../../../../utils/SpotifyAPI/SpotifyAPI";
+import { useEffect, useState } from "react";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,7 +10,21 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function RelatedArtists() {
+function RelatedArtists({token, id}) {
+
+  const [relatedArtists, setRelatedArtists] = useState([])
+
+
+  useEffect(() => {
+    getRelatedArtist({token,id})
+    .then((res) => {
+      setRelatedArtists(res.artists)
+    })
+  },[token,id])
+
+  console.log(relatedArtists)
+
+
   return (
     <div className="">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">
@@ -41,9 +57,9 @@ function RelatedArtists() {
         modules={[FreeMode, Pagination]}
         className="md:ml-7 mb-16"
       >
-      {topArtist.map((artist) => {
+      {relatedArtists.map((artist) => {
         return (
-            <SwiperSlide className="w-[200px] lg:max-w-[230px]">
+            <SwiperSlide key={artist.id} className="w-[200px] lg:max-w-[230px]">
              <ArtistIcon data={artist}/>
             </SwiperSlide>
         )

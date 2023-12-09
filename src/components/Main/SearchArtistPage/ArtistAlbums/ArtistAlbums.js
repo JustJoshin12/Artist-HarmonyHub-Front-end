@@ -1,7 +1,20 @@
 import AlbumIcon from "../../HomePage/NewReleases/AlbumIcon/AlbumIcon";
-import { artistAlbums } from "../../../../utils/constant";
+import { useState, useEffect } from "react";
+import { getArtistAlbums } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 
-function ArtistAlbums () {
+function ArtistAlbums ({id,token}) {
+  const [artistAlbums, setArtistAlbums] = useState([]);
+
+  useEffect(() => {
+    getArtistAlbums({token,id})
+    .then((res) => {
+      setArtistAlbums(res.items)
+    })
+  },[token,id])
+
+  console.log(artistAlbums);
+
+
     return(
         <div className="my-[90px] mx-4"> 
         <p className="text-4xl font-[Poppins] font-semibold mb-10">Albums</p>

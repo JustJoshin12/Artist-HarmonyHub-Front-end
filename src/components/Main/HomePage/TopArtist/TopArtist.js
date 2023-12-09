@@ -58,7 +58,6 @@ function TopArtist({ topArtistData }) {
         className="ml-7 "
       >
         {filteredArtists.map((artist) => {
-          console.log(artist)
           return (
             <SwiperSlide key={artist.id}>
               <ArtistIcon data={artist} />

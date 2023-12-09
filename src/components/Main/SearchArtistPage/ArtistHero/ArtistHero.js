@@ -13,8 +13,6 @@ function ArtistHero ({id, token}) {
   },[token,id])
 
 
-  console.log(artistInfo)
-
     return(
         <div className="mt-[150px]">
         <div className="hero bg-violet-800/50 rounded-badge border-2 border-white md:rounded-full">

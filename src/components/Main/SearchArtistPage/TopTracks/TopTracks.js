@@ -7,10 +7,11 @@ import { FreeMode, Pagination } from "swiper/modules";
 import { useState, useEffect } from "react";
 import { getArtistTopTracks } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 
+
 function TopTracks({id,token}) {
 
 
- const [topTracks, setTopTracks] = useState(null);
+ const [topTracks, setTopTracks] = useState([]);
 
  useEffect(() => {
     getArtistTopTracks({token,id})
@@ -50,7 +51,13 @@ function TopTracks({id,token}) {
         modules={[FreeMode, Pagination]}
         className="md:ml-7 mb-16"
       >
-        
+      {topTracks.map((track) => {
+        return (
+          <SwiperSlide key={track.id} >
+            <TrackCard data={track} buttonText="favorite"/>
+          </SwiperSlide>
+        )
+      })}
       </Swiper>
     </div>
   );

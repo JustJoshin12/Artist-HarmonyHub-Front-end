@@ -117,8 +117,44 @@ export const getArtistTopTracks = ({token,id}) => {
   const artistTopTracks = fetch(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=US`,parameters)
   .then((res) => {
     return checkResponse(res)
-  })
+  });
 
   return artistTopTracks;
+}
+
+
+export const getArtistAlbums = ({token,id}) => {
+
+  let parameters = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const artistAlbums = fetch(`https://api.spotify.com/v1/artists/${id}/albums?include_groups=album&market=US&limit=15&offset=0`,parameters)
+  .then((res) => {
+    return checkResponse(res)
+  });
+
+  return artistAlbums
+}
+
+
+export const getRelatedArtist = ({token,id}) => {
+
+ let parameters = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const relatedArtists = fetch(`https://api.spotify.com/v1/artists/${id}/related-artists`,parameters)
+  .then((res) => {
+    return checkResponse(res)
+  });
+
+  return relatedArtists
 }
 

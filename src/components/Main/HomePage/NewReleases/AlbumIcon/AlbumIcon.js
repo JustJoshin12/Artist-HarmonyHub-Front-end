@@ -14,7 +14,7 @@ function AlbumIcon({ data }) {
         <h4 className="font-bold text-2xl text-black">{data?.artists[0]?.name}</h4>
         <p className="py-2 text-md font-semibold font-[Poppins] text-black">{data.name}</p>
         <div className="absolute top-0 right-0 pt-4 pr-2">
-          <span className="badge font-bold">Explict</span>
+          <span className="badge font-bold">tracks {data.total_tracks}</span>
         </div>
       </div>
     </div>

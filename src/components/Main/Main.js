@@ -7,13 +7,13 @@ function Main({topArtistData, newReleaseData, token}) {
   return (
     <main className=" mt-20 max-w-[1300px] mx-auto">
       <Switch>
-        <Route exact path='/'>
+        <Route exact path='/Artist-HarmonyHub-Front-end' >
           <HomePage topArtistData={topArtistData} newReleaseData={newReleaseData}/>
         </Route>
-        <Route path='/artist'>
+        <Route path='/Artist-HarmonyHub-Front-end/artist'>
           <SearchArtist token={token}/>
         </Route>
-        <Route path='/favorites'>
+        <Route path='/Artist-HarmonyHub-Front-end/favorites'>
           <FavoritePage />
         </Route>
       </Switch>

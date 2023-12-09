@@ -24,7 +24,7 @@ function NavBar({onEdit}) {
           <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
               <button>
-                <Link to="/"><button>Home</button></Link>
+                <Link to="/Artist-HarmonyHub-Front-end"><button>Home</button></Link>
               </button>
             </li>
             <li>
@@ -43,7 +43,7 @@ function NavBar({onEdit}) {
             </li>
             <li>
               <button>
-                <Link to="/artist">Search Artist</Link>
+                <Link to="/Artist-HarmonyHub-Front-end/artist">Search Artist</Link>
               </button>
             </li>
           </ul>
@@ -52,7 +52,7 @@ function NavBar({onEdit}) {
       <div className="navbar-center hidden min-[1025px]:flex">
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
-            <Link to="/">
+            <Link to="/Artist-HarmonyHub-Front-end">
               <button className="btn btn-ghost btn-wide text-2xl">Home</button>
             </Link>
           </li>
@@ -63,7 +63,7 @@ function NavBar({onEdit}) {
               </summary>
               <ul className="p-2 text-black left-[50px]">
                 <li>
-                  <Link to="/favorites" >
+                  <Link to="/Artist-HarmonyHub-Front-end/favorites" >
                   <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
                     Favorites
                   </button>
@@ -83,7 +83,7 @@ function NavBar({onEdit}) {
             </details>
           </li>
           <li>
-            <Link to="/artist">
+            <Link to="/Artist-HarmonyHub-Front-end/artist">
               <button className="btn btn-ghost btn-wide text-2xl">
                 Search Artist
               </button>

@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function NavBar({onEdit}) {
+function NavBar({ onEdit }) {
   return (
     <div className="navbar mt-5 bg-black col-span-2">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost min-[1025px]:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost min-[1025px]:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -24,7 +28,9 @@ function NavBar({onEdit}) {
           <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
               <button>
-                <Link to="/Artist-HarmonyHub-Front-end"><button>Home</button></Link>
+                <Link to="/Artist-HarmonyHub-Front-end">
+                  <button>Home</button>
+                </Link>
               </button>
             </li>
             <li>
@@ -42,9 +48,9 @@ function NavBar({onEdit}) {
               </ul>
             </li>
             <li>
-              <button>
-                <Link to="/Artist-HarmonyHub-Front-end/artist">Search Artist</Link>
-              </button>
+              <Link to="/Artist-HarmonyHub-Front-end/artist">
+                <button>Search Artist</button>
+              </Link>
             </li>
           </ul>
         </div>
@@ -63,14 +69,17 @@ function NavBar({onEdit}) {
               </summary>
               <ul className="p-2 text-black left-[50px]">
                 <li>
-                  <Link to="/Artist-HarmonyHub-Front-end/favorites" >
-                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
-                    Favorites
-                  </button>
+                  <Link to="/Artist-HarmonyHub-Front-end/favorites">
+                    <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
+                      Favorites
+                    </button>
                   </Link>
                 </li>
                 <li>
-                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center" onClick={onEdit}>
+                  <button
+                    className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
+                    onClick={onEdit}
+                  >
                     Edit Profile
                   </button>
                 </li>

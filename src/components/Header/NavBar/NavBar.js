@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function NavBar({onOpen}) {
+function NavBar({onEdit}) {
   return (
     <div className="navbar mt-5 bg-black col-span-2">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost min-[1025px]:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -21,20 +21,20 @@ function NavBar({onOpen}) {
               />
             </svg>
           </div>
-          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
+          <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
               <button>
-                <Link to="/">Home</Link>
+                <Link to="/"><button>Home</button></Link>
               </button>
             </li>
             <li>
               <h2>Profile</h2>
               <ul>
                 <li>
-                  <button onClick={onOpen}>Favorites</button>
+                  <button>Favorites</button>
                 </li>
                 <li>
-                  <button>Edit Profile</button>
+                  <button onClick={onEdit}>Edit Profile</button>
                 </li>
                 <li>
                   <button>Log Out</button>
@@ -49,7 +49,7 @@ function NavBar({onOpen}) {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden min-[1025px]:flex">
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
             <Link to="/">
@@ -63,12 +63,14 @@ function NavBar({onOpen}) {
               </summary>
               <ul className="p-2 text-black left-[50px]">
                 <li>
+                  <Link to="/favorites" >
                   <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
                     Favorites
                   </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center" onClick={onOpen}>
+                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center" onClick={onEdit}>
                     Edit Profile
                   </button>
                 </li>

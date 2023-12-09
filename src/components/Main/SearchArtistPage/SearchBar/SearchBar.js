@@ -16,7 +16,7 @@ function SearchBar({ onSearch }) {
       <input
         type="text"
         placeholder="Type here"
-        className="input input-bordered w-full max-w-[550px] text-white font-[Poppins] font-medium border-fuchsia-900 border-2 bg-transparent text-xl"
+        className="input input-bordered w-full max-w-[550px] text-white font-[Poppins] font-medium border-violet-900 border-2 bg-transparent text-lg md:text-xl"
         value={searchTerm}
         onChange={handleInputChange}
       />

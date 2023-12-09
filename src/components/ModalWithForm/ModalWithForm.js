@@ -9,7 +9,7 @@ function ModalWithForm({
 }) {
   return (
     <div
-      className={`fixed top-0 right-0 left-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50 z-10 modal_type_${name}`}
+      className={`fixed top-0 right-0 left-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50 z-10 modal_type_${name} px-2 md:px-0`}
     >
       <div className="relative bg-slate-800 shadow shadow-black max-w-[496px] w-full rounded-2xl p-[28px] border-black border-4">
         <button

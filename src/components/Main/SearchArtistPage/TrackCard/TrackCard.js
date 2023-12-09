@@ -1,9 +1,9 @@
 
 
-function TrackCard({data}) {
+function TrackCard({data, buttonText}) {
   return (
    
-      <div className="flex">
+      <div className="flex justify-center">
         <div className="group relative items-center justify-center overflow-hidden cursor-pointer rounded-badge hover:shadow-xl hover:shadow-black/30 transition-shadow">
           <div className="h-[200px] w-[200px]">
             <img
@@ -21,7 +21,7 @@ function TrackCard({data}) {
               {data.name}
             </p>
             <button className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50">
-              Favorite
+              {buttonText}
             </button>
           </div>
         </div>

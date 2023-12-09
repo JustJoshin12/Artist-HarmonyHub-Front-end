@@ -2,11 +2,25 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import TrackCard from "../TrackCard/TrackCard";
-import { topTracks } from "../../../../utils/constant";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
+import { useState, useEffect } from "react";
+import { getArtistTopTracks } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 
-function TopTracks() {
+function TopTracks({id,token}) {
+
+
+ const [topTracks, setTopTracks] = useState(null);
+
+ useEffect(() => {
+    getArtistTopTracks({token,id})
+    .then((data) => {
+      setTopTracks(data.tracks)
+    })
+ },[token,id]);
+
+ console.log(topTracks);
+
   return (
     <div className="mt-[100px]">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">Top Tracks</p>
@@ -23,9 +37,9 @@ function TopTracks() {
             slidesPerView: 3,
             spaceBetween: 12,
           },
-          1300: {
+          1024: {
             slidesPerView: 3,
-            spaceBetween: 90,
+            spaceBetween: 20,
           },
           1400: {
             slidesPerView: 5,
@@ -34,15 +48,9 @@ function TopTracks() {
         }}
         freeMode={true}
         modules={[FreeMode, Pagination]}
-        className="ml-7 mb-16"
+        className="md:ml-7 mb-16"
       >
-        {topTracks.map((track) => {
-          return (
-            <SwiperSlide key={track.name}>
-              <TrackCard data={track} />
-            </SwiperSlide>
-          );
-        })}
+        
       </Swiper>
     </div>
   );

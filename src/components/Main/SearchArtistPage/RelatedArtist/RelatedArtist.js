@@ -10,7 +10,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 function RelatedArtists() {
   return (
-    <div>
+    <div className="">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">
         Related Artist
       </p>
@@ -18,6 +18,7 @@ function RelatedArtists() {
         breakpoints={{
           340: {
             slidesPerView: 1,
+            spaceBetween:20,
           },
           550: {
             slidesPerView: 2,
@@ -27,22 +28,22 @@ function RelatedArtists() {
             slidesPerView: 3,
             spaceBetween: 12,
           },
-          1300: {
-            slidesPerView: 3,
-            spaceBetween: 90,
+          1024: {
+           slidesPerView: 4,
+           spaceBetween: 40,
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
         }}
         freeMode={true}
         modules={[FreeMode, Pagination]}
-        className="ml-7 mb-16"
+        className="md:ml-7 mb-16"
       >
       {topArtist.map((artist) => {
         return (
-            <SwiperSlide key={artist.name}>
+            <SwiperSlide className="w-[200px] lg:max-w-[230px]">
              <ArtistIcon data={artist}/>
             </SwiperSlide>
         )

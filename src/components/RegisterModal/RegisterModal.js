@@ -79,7 +79,7 @@ function RegisterModal({ onClose, isOpen }) {
           type="text"
           name="username"
           required
-          placeholder="userName"
+          placeholder="UserName"
           value={userName}
           onChange={handleUserNameChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
@@ -93,7 +93,7 @@ function RegisterModal({ onClose, isOpen }) {
           type="password"
           name="password"
           required
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={handlePasswordChange}
           className="input bg-transparent border-violet-800 border-2 w-full"

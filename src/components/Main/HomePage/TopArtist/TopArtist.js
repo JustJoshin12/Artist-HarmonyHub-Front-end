@@ -1,4 +1,4 @@
-import { topArtist } from "../../../../utils/constant";
+
 import ArtistIcon from "./ArtistIcon/ArtistIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,9 +8,25 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function TopArtist() {
+function TopArtist({ topArtistData }) {
+
+  console.log(topArtistData);
+
+  const filterArtists = (artists) => {
+    // Filter artists based on criteria
+    return artists.filter((artist) => {
+      const hasAntiviralPop = artist.genres.includes('antiviral pop');
+      const hasSocialMediaPop = artist.genres.includes('social media pop');
+      const isEmptyGenre = artist.genres.length === 0;
+  
+      return !(hasAntiviralPop || hasSocialMediaPop || isEmptyGenre);
+    });
+  };
+
+  const filteredArtists = filterArtists(topArtistData);
+
   return (
-    <div className=" px-6 py-5 rounded-lg mx-20px mt-[50px]">
+    <div className=" px-6 py-5 rounded-lg ">
       <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
         Top Artist <span className="text-sm font-light ml-7">This week:</span>
       </h3>
@@ -41,10 +57,11 @@ function TopArtist() {
         modules={[FreeMode, Pagination]}
         className="ml-7 "
       >
-        {topArtist.map((artist) => {
+        {filteredArtists.map((artist) => {
+          console.log(artist)
           return (
-            <SwiperSlide key={artist.name} >
-              <ArtistIcon data={artist}/>
+            <SwiperSlide key={artist.id}>
+              <ArtistIcon data={artist} />
             </SwiperSlide>
           );
         })}

@@ -59,7 +59,7 @@ function TopArtist({ topArtistData }) {
       >
         {filteredArtists.map((artist) => {
           return (
-            <SwiperSlide key={artist.id}>
+            <SwiperSlide key={artist.id} className="w-[300px]">
               <ArtistIcon data={artist} />
             </SwiperSlide>
           );

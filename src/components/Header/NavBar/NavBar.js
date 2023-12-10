@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+
 
 function NavBar({ onEdit }) {
   return (
@@ -27,11 +28,7 @@ function NavBar({ onEdit }) {
           </div>
           <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
-              <button>
-                <Link to="/Artist-HarmonyHub-Front-end">
-                  <button>Home</button>
-                </Link>
-              </button>
+              <a><Link to="/Artist-HarmonyHub-Front-end">Home</Link></a>
             </li>
             <li>
               <h2>Profile</h2>
@@ -40,7 +37,7 @@ function NavBar({ onEdit }) {
                   <button>Favorites</button>
                 </li>
                 <li>
-                  <button onClick={onEdit}>Edit Profile</button>
+                  <a><button onClick={onEdit}>Edit Profile</button></a>
                 </li>
                 <li>
                   <button>Log Out</button>
@@ -49,7 +46,7 @@ function NavBar({ onEdit }) {
             </li>
             <li>
               <Link to="/Artist-HarmonyHub-Front-end/artist">
-                <button>Search Artist</button>
+                Search Artist
               </Link>
             </li>
           </ul>
@@ -58,8 +55,8 @@ function NavBar({ onEdit }) {
       <div className="navbar-center hidden min-[1025px]:flex">
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
-            <Link to="/Artist-HarmonyHub-Front-end">
-              <button className="btn btn-ghost btn-wide text-2xl">Home</button>
+            <Link to="/Artist-HarmonyHub-Front-end" className="text-2xl">
+              Home
             </Link>
           </li>
           <li>
@@ -69,10 +66,11 @@ function NavBar({ onEdit }) {
               </summary>
               <ul className="p-2 text-black left-[50px]">
                 <li>
-                  <Link to="/Artist-HarmonyHub-Front-end/favorites">
-                    <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
-                      Favorites
-                    </button>
+                  <Link
+                    to="/Artist-HarmonyHub-Front-end/favorites"
+                    className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
+                  >
+                    Favorites
                   </Link>
                 </li>
                 <li>
@@ -92,10 +90,8 @@ function NavBar({ onEdit }) {
             </details>
           </li>
           <li>
-            <Link to="/Artist-HarmonyHub-Front-end/artist">
-              <button className="btn btn-ghost btn-wide text-2xl">
-                Search Artist
-              </button>
+            <Link to="/Artist-HarmonyHub-Front-end/artist" className="text-2xl">
+              Search Artist
             </Link>
           </li>
         </ul>

@@ -1,9 +1,9 @@
 function ArtistIcon({ data }) {
-  console.log(data);
+  
 
   const image = data?.images[0]?.url;
   return (
-    <div className="flex justify-center w-[230px] flex-col">
+    <div className="flex justify-center  flex-col">
       <div className="justify-center">
         <div className="w-[170px] h-[170px]">
           <img

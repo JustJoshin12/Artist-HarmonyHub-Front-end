@@ -4,14 +4,14 @@
 
 @font-face {
   font-family: "Oswald";
-  src: url("../../spotify-artist-search/src/fonts/Oswald-SemiBold.ttf") format("woff");
+  src: url("./fonts/Oswald-SemiBold.ttf") format("woff");
 }
 @font-face {
   font-family: "Poppins";
-  src: url("../../spotify-artist-search/src/fonts/Poppins-Regular.ttf") format("woff");
+  src: url("./fonts/Poppins-Regular.ttf") format("woff");
 }
 @font-face {
   font-family: "Poppins Bold";
-  src: url("../../spotify-artist-search/src/fonts/Poppins-ExtraBold.ttf") format("woff");
+  src: url("./fonts/Poppins-ExtraBold.ttf") format("woff");
 }
 

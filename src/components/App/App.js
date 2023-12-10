@@ -34,6 +34,7 @@ function App() {
   const handleRegisterModal = () => {
     setActiveModal("register");
   };
+
   useEffect(() => {
     getToken().then((data) => {
       setAuthToken(data.access_token);
@@ -70,7 +71,7 @@ function App() {
         onLoginModal={handleLoginModal}
         onRegisterModal={handleRegisterModal}
       />
-      <Main topArtistData={topArtistData} newReleaseData={newReleaseData} token={authToken}/>
+      <Main  topArtistData={topArtistData} newReleaseData={newReleaseData} token={authToken}/>
       <Footer />
       {activeModal === "edit" && (
         <EditProfileModal onClose={handleCloseModal} />

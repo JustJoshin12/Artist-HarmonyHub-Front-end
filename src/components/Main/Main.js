@@ -1,7 +1,7 @@
 import HomePage from "./HomePage/HomePage";
 import SearchArtist from "./SearchArtistPage/SearchArtistPage";
 import FavoritePage from "./FavoritePage/FavoritePage";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 
 function Main({ topArtistData, newReleaseData, token }) {
   return (
@@ -10,7 +10,7 @@ function Main({ topArtistData, newReleaseData, token }) {
         <Route
           exact
           path="/Artist-HarmonyHub-Front-end"
-          component={() => (
+          render={() => (
             <HomePage
               topArtistData={topArtistData}
               newReleaseData={newReleaseData}
@@ -20,13 +20,14 @@ function Main({ topArtistData, newReleaseData, token }) {
 
         <Route
           path="/Artist-HarmonyHub-Front-end/artist"
-          component={() => <SearchArtist token={token} />}
+          render={() => <SearchArtist token={token} />}
         />
 
         <Route
           path="/Artist-HarmonyHub-Front-end/favorites"
           component={() => <FavoritePage />}
         />
+        <Redirect to="/Artist-HarmonyHub-Front-end/artist" />
       </Router>
     </main>
   );

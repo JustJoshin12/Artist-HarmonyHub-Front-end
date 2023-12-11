@@ -36,9 +36,13 @@ function App() {
   };
 
   useEffect(() => {
-    getToken().then((data) => {
-      setAuthToken(data.access_token);
-    });
+    getToken()
+      .then((data) => {
+        setAuthToken(data.access_token);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -46,15 +50,29 @@ function App() {
     if (authToken === "") {
       return;
     } else {
-      getTopArtistData(authToken).then((data) => {
-        setTopArtistData(data.artists.items);
-      });
-      getNewReleaseData(authToken).then((data) => {
-        setNewReleaseData(data.albums.items);
-      });
-      getRecommendations(authToken).then((res) => {
-        setRecommendations(res?.albums?.items);
-      });
+      getTopArtistData(authToken)
+        .then((data) => {
+          setTopArtistData(data.artists.items);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
+      getNewReleaseData(authToken)
+        .then((data) => {
+          setNewReleaseData(data.albums.items);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
+      getRecommendations(authToken)
+        .then((res) => {
+          setRecommendations(res?.albums?.items);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }, [authToken]);
 

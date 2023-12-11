@@ -51,15 +51,17 @@ function LoginModal({ onClose, isOpen }) {
         />
       </label>
       <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">Password</p>
+        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+          Password
+        </p>
         <input
-         type="password"
-         name="password"
-         required
-         placeholder="password"
-         value={password}
-         onChange={handlePasswordChange}
-         className="input bg-transparent border-violet-800 border-2 w-full"
+          type="password"
+          name="password"
+          required
+          placeholder="password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
     </ModalWithForm>

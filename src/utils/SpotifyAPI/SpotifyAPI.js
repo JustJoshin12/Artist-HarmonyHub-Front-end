@@ -3,8 +3,6 @@ const clientId = "774dc384c15942b2a0637338f1e99147";
 const clientSecret = "431e5d12c78344e3a1a58747820c883c";
 const market = "US";
 
-
-
 export const getToken = () => {
   let authParameters = {
     method: "POST",
@@ -87,7 +85,7 @@ export const getArtistId = (token, searchInput) => {
   return artistId;
 };
 
-export const getArtistInfo = ({token, id}) => {
+export const getArtistInfo = ({ token, id }) => {
   let parameters = {
     headers: {
       "Content-Type": "application/json",
@@ -95,18 +93,17 @@ export const getArtistInfo = ({token, id}) => {
     },
   };
 
+  const artistInfo = fetch(
+    `https://api.spotify.com/v1/artists/${id}`,
+    parameters
+  ).then((res) => {
+    return checkResponse(res);
+  });
 
-const artistInfo = fetch(`https://api.spotify.com/v1/artists/${id}`,parameters)
-.then((res) => {
-  return checkResponse(res)
-})
-
-return artistInfo;
+  return artistInfo;
 };
 
-
-export const getArtistTopTracks = ({token,id}) => {
-
+export const getArtistTopTracks = ({ token, id }) => {
   let parameters = {
     headers: {
       "Content-Type": "application/json",
@@ -114,17 +111,17 @@ export const getArtistTopTracks = ({token,id}) => {
     },
   };
 
-  const artistTopTracks = fetch(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=US`,parameters)
-  .then((res) => {
-    return checkResponse(res)
+  const artistTopTracks = fetch(
+    `https://api.spotify.com/v1/artists/${id}/top-tracks?market=US`,
+    parameters
+  ).then((res) => {
+    return checkResponse(res);
   });
 
   return artistTopTracks;
-}
+};
 
-
-export const getArtistAlbums = ({token,id}) => {
-
+export const getArtistAlbums = ({ token, id }) => {
   let parameters = {
     headers: {
       "Content-Type": "application/json",
@@ -132,44 +129,47 @@ export const getArtistAlbums = ({token,id}) => {
     },
   };
 
-  const artistAlbums = fetch(`https://api.spotify.com/v1/artists/${id}/albums?include_groups=album&market=US&limit=15&offset=0`,parameters)
-  .then((res) => {
-    return checkResponse(res)
+  const artistAlbums = fetch(
+    `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album&market=US&limit=15&offset=0`,
+    parameters
+  ).then((res) => {
+    return checkResponse(res);
   });
 
-  return artistAlbums
-}
+  return artistAlbums;
+};
 
-
-export const getRelatedArtist = ({token,id}) => {
-
- let parameters = {
+export const getRelatedArtist = ({ token, id }) => {
+  let parameters = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
 
-  const relatedArtists = fetch(`https://api.spotify.com/v1/artists/${id}/related-artists`,parameters)
-  .then((res) => {
-    return checkResponse(res)
+  const relatedArtists = fetch(
+    `https://api.spotify.com/v1/artists/${id}/related-artists`,
+    parameters
+  ).then((res) => {
+    return checkResponse(res);
   });
 
-  return relatedArtists
-}
+  return relatedArtists;
+};
 
 export const getRecommendations = (token) => {
- 
   let parameters = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
-   const recommendations = fetch('https://api.spotify.com/v1/search?q=tag%3Anew&type=album&market=US&limit=15&offset=0', parameters)
-   .then((res) => {return checkResponse(res)});
+  const recommendations = fetch(
+    "https://api.spotify.com/v1/search?q=tag%3Anew&type=album&market=US&limit=15&offset=0",
+    parameters
+  ).then((res) => {
+    return checkResponse(res);
+  });
 
-   return recommendations
-}
-
-
+  return recommendations;
+};

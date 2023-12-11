@@ -19,12 +19,13 @@ function ModalWithForm({
         >
           X
         </button>
-        <h3 className="text-black font-bold m-0 text-4xl ">
-          {title}
-        </h3>
+        <h3 className="text-black font-bold m-0 text-4xl ">{title}</h3>
         <form onSubmit={onSubmit} className="mt-5 flex flex-col">
           {children}
-          <button type="submit" className="btn  text-black font-bold font-seff text-xl mt-8 w-[60%] mx-auto rounded-full border-violet-900 border-2 bg-violet-800/40 hover:bg-violet-900">
+          <button
+            type="submit"
+            className="btn  text-black font-bold font-seff text-xl mt-8 w-[60%] mx-auto rounded-full border-violet-900 border-2 bg-violet-800/40 hover:bg-violet-900"
+          >
             {buttonText}
           </button>
         </form>

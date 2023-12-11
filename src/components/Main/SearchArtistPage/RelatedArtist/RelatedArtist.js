@@ -18,8 +18,6 @@ function RelatedArtists({ token, id }) {
     });
   }, [token, id]);
 
- 
-
   return (
     <div className="">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">
@@ -58,9 +56,7 @@ function RelatedArtists({ token, id }) {
         >
           {relatedArtists.map((artist) => {
             return (
-              <SwiperSlide
-                key={artist.id}
-              >
+              <SwiperSlide key={artist.id}>
                 <ArtistIcon data={artist} />
               </SwiperSlide>
             );

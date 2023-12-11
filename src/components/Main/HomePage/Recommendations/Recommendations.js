@@ -10,9 +10,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 import TrackCard from "../../SearchArtistPage/TrackCard/TrackCard";
 
 function Recommendation({ recommendations }) {
-
   const [loggedIn, setLoggedIn] = useState(true);
-
 
   return (
     <section>
@@ -46,7 +44,11 @@ function Recommendation({ recommendations }) {
           {recommendations.map((item) => {
             return (
               <SwiperSlide>
-                <TrackCard data={item} buttonText='favorite' section="recommendation"/>
+                <TrackCard
+                  data={item}
+                  buttonText="favorite"
+                  section="recommendation"
+                />
               </SwiperSlide>
             );
           })}

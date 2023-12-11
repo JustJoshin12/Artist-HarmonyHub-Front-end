@@ -7,16 +7,14 @@ import RelatedArtists from "./RelatedArtist/RelatedArtist";
 import { useState } from "react";
 import { getArtistId } from "../../../utils/SpotifyAPI/SpotifyAPI";
 
-function SearchArtist({token}) {
+function SearchArtist({ token }) {
   const [searchHistory, setSearchHistory] = useState(null);
-  
+
   const handleSearch = (searchTerm) => {
-    getArtistId(token,searchTerm)
-    .then((data) =>{
+    getArtistId(token, searchTerm).then((data) => {
       setSearchHistory(data.artists.items[0].id);
-    })
+    });
   };
-  
 
   return (
     <div className="mt-12 w-[340px] md:w-[730px] lg:w-[950px] xl:w-[1300px]">
@@ -28,14 +26,17 @@ function SearchArtist({token}) {
       </div>
       {searchHistory === null ? (
         <div className="mt-4">
-          <h3 className="text-3xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl"> Search For An Artist</h3>
+          <h3 className="text-3xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl">
+            {" "}
+            Search For An Artist
+          </h3>
         </div>
       ) : (
         <div>
-          <ArtistHero id={searchHistory} token={token}/>
-          <TopTracks id={searchHistory} token={token}/>
-          <ArtistAlbums id={searchHistory} token={token}/>
-          <RelatedArtists id={searchHistory} token={token}/>
+          <ArtistHero id={searchHistory} token={token} />
+          <TopTracks id={searchHistory} token={token} />
+          <ArtistAlbums id={searchHistory} token={token} />
+          <RelatedArtists id={searchHistory} token={token} />
         </div>
       )}
     </div>

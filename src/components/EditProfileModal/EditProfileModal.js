@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-function EditProfileModal({onClose, isOpen}) {
+function EditProfileModal({ onClose, isOpen }) {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -21,25 +21,32 @@ function EditProfileModal({onClose, isOpen}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
-        "name":name,
-        "avatar":avatar,
-        "userName": userName
+      name: name,
+      avatar: avatar,
+      userName: userName,
     });
     onClose();
   };
 
   useEffect(() => {
     if (isOpen) {
-        setName("");
-        setAvatar("");
-        setUserName("");
+      setName("");
+      setAvatar("");
+      setUserName("");
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
-    <ModalWithForm onSubmit={handleSubmit} onClose={onClose} title='Edit Profile' buttonText="Save">
+    <ModalWithForm
+      onSubmit={handleSubmit}
+      onClose={onClose}
+      title="Edit Profile"
+      buttonText="Save"
+    >
       <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">Name</p>
+        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+          Name
+        </p>
         <input
           type="text"
           name="name"
@@ -51,7 +58,9 @@ function EditProfileModal({onClose, isOpen}) {
         />
       </label>
       <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">UserName</p>
+        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+          UserName
+        </p>
         <input
           type="text"
           name="username"
@@ -63,7 +72,9 @@ function EditProfileModal({onClose, isOpen}) {
         />
       </label>
       <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">Avatar</p>
+        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+          Avatar
+        </p>
         <input
           type="url"
           name="avatar"

@@ -1,4 +1,3 @@
-
 import ArtistIcon from "./ArtistIcon/ArtistIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,15 +8,13 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
 
 function TopArtist({ topArtistData }) {
-
-
   const filterArtists = (artists) => {
     // Filter artists based on criteria
     return artists.filter((artist) => {
-      const hasAntiviralPop = artist.genres.includes('antiviral pop');
-      const hasSocialMediaPop = artist.genres.includes('social media pop');
+      const hasAntiviralPop = artist.genres.includes("antiviral pop");
+      const hasSocialMediaPop = artist.genres.includes("social media pop");
       const isEmptyGenre = artist.genres.length === 0;
-  
+
       return !(hasAntiviralPop || hasSocialMediaPop || isEmptyGenre);
     });
   };
@@ -27,12 +24,11 @@ function TopArtist({ topArtistData }) {
   return (
     <div className=" px-6 py-5 rounded-lg ">
       <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
-        Top Artist 
+        Top Artist
       </h3>
 
       <Swiper
         breakpoints={{
-          
           340: {
             slidesPerView: 2,
             spaceBetween: 90,

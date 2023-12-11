@@ -3,7 +3,7 @@ import NavBar from "./NavBar/NavBar";
 import UserInfoIcon from "./UserInfo/UserInfo";
 import { useState } from "react";
 
-function Header({ onEditModal, onLoginModal, onRegisterModal}) {
+function Header({ onEditModal, onLoginModal, onRegisterModal }) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
@@ -37,8 +37,7 @@ function Header({ onEditModal, onLoginModal, onRegisterModal}) {
         </div>
       )}
 
-      <NavBar onEdit={onEditModal}/>
-
+      <NavBar onEdit={onEditModal} />
     </header>
   );
 }

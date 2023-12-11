@@ -1,5 +1,4 @@
 function ArtistIcon({ data }) {
-  
   return (
     <div className="flex justify-center flex-col">
       <div className="items-center">

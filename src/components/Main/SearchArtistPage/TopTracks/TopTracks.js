@@ -20,7 +20,7 @@ function TopTracks({id,token}) {
     })
  },[token,id]);
 
- console.log(topTracks);
+ 
 
   return (
     <div className="mt-[100px]">
@@ -53,7 +53,7 @@ function TopTracks({id,token}) {
       >
       {topTracks.map((track) => {
         return (
-          <SwiperSlide key={track.id} className="max-w-[230px]">
+          <SwiperSlide key={track.id}>
             <TrackCard data={track} buttonText="favorite"/>
           </SwiperSlide>
         )

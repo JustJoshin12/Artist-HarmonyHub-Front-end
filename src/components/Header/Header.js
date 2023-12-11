@@ -1,9 +1,10 @@
 import Logo from "../../images/websiteLogo.png";
 import NavBar from "./NavBar/NavBar";
+import NavBarNew from "./NavBarrr/NavBarrr";
 import UserInfoIcon from "./UserInfo/UserInfo";
 import { useState } from "react";
 
-function Header({ onEditModal, onLoginModal, onRegisterModal, onNavClick }) {
+function Header({ onEditModal, onLoginModal, onRegisterModal}) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
@@ -37,7 +38,8 @@ function Header({ onEditModal, onLoginModal, onRegisterModal, onNavClick }) {
         </div>
       )}
 
-      <NavBar onEdit={onEditModal} onNavClick={onNavClick}/>
+      <NavBar onEdit={onEditModal}/>
+
     </header>
   );
 }

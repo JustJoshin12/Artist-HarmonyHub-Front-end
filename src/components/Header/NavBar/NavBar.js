@@ -26,30 +26,32 @@ function NavBar({ onEdit }) {
               />
             </svg>
           </div>
-          <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
-              <div>
-              <Link to="/Artist-HarmonyHub-Front-end"><button>Home</button></Link>
+              <div role="button" tabIndex={0} >
+              <Link to="/Artist-HarmonyHub-Front-end">Home</Link>
               </div>
             </li>
             <li>
               <h2>Profile</h2>
               <ul>
                 <li>
-                  <button>Favorites</button>
+                  <div tabIndex={0} role="button">Favorites</div>
                 </li>
                 <li>
-                  <button onClick={onEdit}>Edit Profile</button>
+                  <div role="button" tabIndex={0} onClick={onEdit}>Edit Profile</div>
                 </li>
                 <li>
-                  <button>Log Out</button>
+                  <div role="button" tabIndex={0}>Log Out</div>
                 </li>
               </ul>
             </li>
             <li>
+              <div role="button" tabIndex={0}>
               <Link to="/Artist-HarmonyHub-Front-end/artist">
                 Search Artist
               </Link>
+              </div>
             </li>
           </ul>
         </div>

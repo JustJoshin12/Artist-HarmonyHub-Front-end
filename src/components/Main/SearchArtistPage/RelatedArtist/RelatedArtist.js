@@ -36,11 +36,8 @@ function RelatedArtists({ token, id }) {
         <Swiper
           breakpoints={{
             340: {
-              slidesPerView: 1,
-            },
-            550: {
               slidesPerView: 2,
-              spaceBetween: 10,
+              spaceBetween: 60,
             },
             650: {
               slidesPerView: 3,
@@ -63,7 +60,6 @@ function RelatedArtists({ token, id }) {
             return (
               <SwiperSlide
                 key={artist.id}
-                className="max-w-[200px] lg:max-w-[230px]"
               >
                 <ArtistIcon data={artist} />
               </SwiperSlide>

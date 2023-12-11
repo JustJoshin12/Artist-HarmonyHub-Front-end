@@ -9,7 +9,7 @@ import {
   getToken,
   getTopArtistData,
   getNewReleaseData,
-  getRecommendations
+  getRecommendations,
 } from "../../utils/SpotifyAPI/SpotifyAPI";
 
 function App() {
@@ -57,8 +57,6 @@ function App() {
       });
     }
   }, [authToken]);
-
-
 
   return (
     <div className="bg-black p-3 text-white flex flex-col items-center ">

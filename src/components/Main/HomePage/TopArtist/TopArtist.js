@@ -27,7 +27,7 @@ function TopArtist({ topArtistData }) {
   return (
     <div className=" px-6 py-5 rounded-lg ">
       <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
-        Top Artist <span className="text-sm font-light ml-7">This week:</span>
+        Top Artist 
       </h3>
 
       <Swiper

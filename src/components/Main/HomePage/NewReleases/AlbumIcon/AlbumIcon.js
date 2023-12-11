@@ -1,6 +1,6 @@
 function AlbumIcon({ data }) {
   return (
-    <div className=" bg-gray-600 rounded overflow-hidden border-2 border-gray-700  hover:scale-125 ease-linear duration-200  w-[300px]">
+    <div className=" bg-indigo-900/70 rounded overflow-hidden border-2 border-white/50  hover:scale-125 ease-linear duration-200  w-[300px]">
       <img
         className="w-full h-36 object-center"
         src={data?.images[0]?.url}

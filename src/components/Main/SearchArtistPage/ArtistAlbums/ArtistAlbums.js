@@ -21,7 +21,7 @@ function ArtistAlbums({ id, token }) {
           </h3>
         </div>
       ) : (
-        <ul className="grid mb-14 gap-10 justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="grid mb-14 gap-10 justify-center sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {artistAlbums.map((album) => {
             return <AlbumIcon data={album}></AlbumIcon>;
           })}

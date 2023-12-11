@@ -53,7 +53,7 @@ function TopTracks({id,token}) {
       >
       {topTracks.map((track) => {
         return (
-          <SwiperSlide key={track.id} >
+          <SwiperSlide key={track.id} className="max-w-[230px]">
             <TrackCard data={track} buttonText="favorite"/>
           </SwiperSlide>
         )

@@ -18,7 +18,7 @@ function RelatedArtists({ token, id }) {
     });
   }, [token, id]);
 
-  console.log(relatedArtists);
+ 
 
   return (
     <div className="">
@@ -37,7 +37,6 @@ function RelatedArtists({ token, id }) {
           breakpoints={{
             340: {
               slidesPerView: 1,
-              spaceBetween: 20,
             },
             550: {
               slidesPerView: 2,
@@ -58,13 +57,13 @@ function RelatedArtists({ token, id }) {
           }}
           freeMode={true}
           modules={[FreeMode, Pagination]}
-          className="md:ml-7 mb-16"
+          className="ml-7 md:ml-7 mb-16"
         >
           {relatedArtists.map((artist) => {
             return (
               <SwiperSlide
                 key={artist.id}
-                className="w-[200px] lg:max-w-[230px]"
+                className="max-w-[200px] lg:max-w-[230px]"
               >
                 <ArtistIcon data={artist} />
               </SwiperSlide>

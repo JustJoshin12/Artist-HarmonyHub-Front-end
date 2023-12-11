@@ -2,7 +2,7 @@ import AlbumIcon from "./AlbumIcon/AlbumIcon";
 
 
 function NewReleases({newReleaseData}) {
-  console.log(newReleaseData)
+  
 
   return (
     <section className="mx-auto py-5 my-14 max-w-7xl">

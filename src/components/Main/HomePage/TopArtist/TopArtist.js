@@ -10,7 +10,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 function TopArtist({ topArtistData }) {
 
-  console.log(topArtistData);
 
   const filterArtists = (artists) => {
     // Filter artists based on criteria

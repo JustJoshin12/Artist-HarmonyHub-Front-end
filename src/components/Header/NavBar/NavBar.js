@@ -28,7 +28,9 @@ function NavBar({ onEdit }) {
           </div>
           <ul className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li>
-              <a><Link to="/Artist-HarmonyHub-Front-end">Home</Link></a>
+              <div>
+              <Link to="/Artist-HarmonyHub-Front-end"><button>Home</button></Link>
+              </div>
             </li>
             <li>
               <h2>Profile</h2>
@@ -37,7 +39,7 @@ function NavBar({ onEdit }) {
                   <button>Favorites</button>
                 </li>
                 <li>
-                  <a><button onClick={onEdit}>Edit Profile</button></a>
+                  <button onClick={onEdit}>Edit Profile</button>
                 </li>
                 <li>
                   <button>Log Out</button>

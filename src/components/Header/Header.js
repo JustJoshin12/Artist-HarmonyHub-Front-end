@@ -4,7 +4,7 @@ import UserInfoIcon from "./UserInfo/UserInfo";
 import { useState } from "react";
 
 function Header({ onEditModal, onLoginModal, onRegisterModal, onNavClick }) {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <header className="w-[80%] flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 sm:grid-cols-1 sm:grid-rows-3 md:w-[70%]">

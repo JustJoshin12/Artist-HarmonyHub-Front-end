@@ -19,11 +19,8 @@ function FavoriteArtist () {
         <Swiper
           breakpoints={{
             340: {
-              slidesPerView: 1,
-            },
-            550: {
               slidesPerView: 2,
-              spaceBetween: 10,
+              spaceBetween: 90,
             },
             650: {
               slidesPerView: 3,

@@ -12,6 +12,10 @@ function ArtistHero ({id, token}) {
    })
   },[token,id])
 
+  const handleFavoriteArtist = () => {
+    console.log(artistInfo)
+  }
+
 
     return(
         <div className="mt-[150px]">
@@ -33,7 +37,7 @@ function ArtistHero ({id, token}) {
                   <span className="text-white ml-6 text-lg md:text-xl xl:text-3xl">{artistInfo?.followers?.total}</span>
                 </p>
               </div>
-              <button className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40">
+              <button className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40" onClick={handleFavoriteArtist}>
                 Favorite Artist
               </button>
             </div>

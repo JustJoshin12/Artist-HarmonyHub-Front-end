@@ -1,11 +1,11 @@
 function ArtistIcon({ data }) {
-  const image = data?.images[0]?.url;
+  
   return (
     <div className="flex justify-center flex-col">
       <div className="items-center">
         <div className="w-[170px] h-[170px]">
           <img
-            src={image}
+            src={data?.images[0]?.url}
             alt={data.name}
             className="rounded-lg h-full w-full object-cover "
           />

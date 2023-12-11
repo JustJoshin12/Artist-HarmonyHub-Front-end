@@ -158,3 +158,18 @@ export const getRelatedArtist = ({token,id}) => {
   return relatedArtists
 }
 
+export const getRecommendations = (token) => {
+ 
+  let parameters = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+   const recommendations = fetch('https://api.spotify.com/v1/search?q=tag%3Anew&type=album&market=US&limit=15&offset=0', parameters)
+   .then((res) => {return checkResponse(res)});
+
+   return recommendations
+}
+
+

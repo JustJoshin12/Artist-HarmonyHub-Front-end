@@ -9,7 +9,7 @@ import {
   getToken,
   getTopArtistData,
   getNewReleaseData,
-  getArtistId,
+  getRecommendations
 } from "../../utils/SpotifyAPI/SpotifyAPI";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   const [authToken, setAuthToken] = useState("");
   const [topArtistData, setTopArtistData] = useState([]);
   const [newReleaseData, setNewReleaseData] = useState([]);
- 
+  const [recommendations, setRecommendations] = useState([]);
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -49,20 +49,16 @@ function App() {
       getTopArtistData(authToken).then((data) => {
         setTopArtistData(data.artists.items);
       });
-    }
-  }, [authToken]);
-
-  useEffect(() => {
-    if (authToken === "") {
-      return;
-    } else {
       getNewReleaseData(authToken).then((data) => {
         setNewReleaseData(data.albums.items);
+      });
+      getRecommendations(authToken).then((res) => {
+        setRecommendations(res?.albums?.items);
       });
     }
   }, [authToken]);
 
- 
+
 
   return (
     <div className="bg-black p-3 text-white flex flex-col items-center ">
@@ -71,7 +67,12 @@ function App() {
         onLoginModal={handleLoginModal}
         onRegisterModal={handleRegisterModal}
       />
-      <Main  topArtistData={topArtistData} newReleaseData={newReleaseData} token={authToken}/>
+      <Main
+        topArtistData={topArtistData}
+        newReleaseData={newReleaseData}
+        recommendations={recommendations}
+        token={authToken}
+      />
       <Footer />
       {activeModal === "edit" && (
         <EditProfileModal onClose={handleCloseModal} />

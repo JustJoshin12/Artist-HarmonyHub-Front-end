@@ -1,13 +1,30 @@
 
 
-function TrackCard({data, buttonText}) {
+function TrackCard({data, buttonText, section}) {
+
+  const handleButtonAction = () => {
+    if(buttonText === 'favorite') {
+      console.log(data);
+    } else {
+      console.log("removed")
+    }
+  }
+
+const image = () => {
+  if(section === 'recommendation'){
+    return data?.images[0].url
+  } else {
+    return data?.album?.images[0]?.url
+  }
+}
+
   return (
    
       <div className="flex justify-center">
         <div className="group relative items-center justify-center overflow-hidden cursor-pointer rounded-badge hover:shadow-xl hover:shadow-black/30 transition-shadow">
           <div className="h-[200px] w-[200px]">
             <img
-              src={data?.album?.images[0]?.url}
+              src={image()}
               alt="track cover"
               className="h-full w-full object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform duration-500"
             />
@@ -20,7 +37,7 @@ function TrackCard({data, buttonText}) {
             <p className="text-lg font-[Poppins] font-semibold text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {data?.name}
             </p>
-            <button className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50">
+            <button className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50" onClick={handleButtonAction}>
               {buttonText}
             </button>
           </div>

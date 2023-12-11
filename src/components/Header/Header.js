@@ -1,6 +1,5 @@
 import Logo from "../../images/websiteLogo.png";
 import NavBar from "./NavBar/NavBar";
-import NavBarNew from "./NavBarrr/NavBarrr";
 import UserInfoIcon from "./UserInfo/UserInfo";
 import { useState } from "react";
 
@@ -22,7 +21,7 @@ function Header({ onEditModal, onLoginModal, onRegisterModal}) {
       {loggedIn ? (
         <UserInfoIcon />
       ) : (
-        <div className="grid grid-cols-2 my-auto justify-end p-2 items-center">
+        <div className="grid grid-cols-2 my-auto justify-end p-2 items-center mt-5">
           <button
             className="btn  btn-md bg-transparent text-white text-2xl border-none hover:bg-fuchsia-900 hover:border-none "
             onClick={onRegisterModal}

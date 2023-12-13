@@ -1,4 +1,5 @@
 {
+  "homepage": "https://justjoshin12.github.io/Artist-HarmonyHub-Front-end",
   "name": "spotify-artist-search",
   "version": "0.1.0",
   "private": true,
@@ -8,14 +9,18 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +39,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "daisyui": "^4.4.16",
+    "gh-pages": "^6.1.0",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.3.5"
   }
 }

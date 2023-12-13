@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Artist-HarmonyHub-Front-end/static/css/main.486590c5.css",
-    "main.js": "/Artist-HarmonyHub-Front-end/static/js/main.b323b923.js",
+    "main.css": "/Artist-HarmonyHub-Front-end/static/css/main.f1926809.css",
+    "main.js": "/Artist-HarmonyHub-Front-end/static/js/main.ab7569d7.js",
     "static/js/787.be1fdb99.chunk.js": "/Artist-HarmonyHub-Front-end/static/js/787.be1fdb99.chunk.js",
     "static/media/websiteLogo.png": "/Artist-HarmonyHub-Front-end/static/media/websiteLogo.0d2d2a94c747b9f72ed2.png",
     "static/media/Poppins-Regular.ttf": "/Artist-HarmonyHub-Front-end/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-ExtraBold.ttf": "/Artist-HarmonyHub-Front-end/static/media/Poppins-ExtraBold.01849ee091e1762a5dd5.ttf",
     "static/media/Oswald-SemiBold.ttf": "/Artist-HarmonyHub-Front-end/static/media/Oswald-SemiBold.ddc9cdcf259f8e6a1d35.ttf",
     "index.html": "/Artist-HarmonyHub-Front-end/index.html",
-    "main.486590c5.css.map": "/Artist-HarmonyHub-Front-end/static/css/main.486590c5.css.map",
-    "main.b323b923.js.map": "/Artist-HarmonyHub-Front-end/static/js/main.b323b923.js.map",
+    "main.f1926809.css.map": "/Artist-HarmonyHub-Front-end/static/css/main.f1926809.css.map",
+    "main.ab7569d7.js.map": "/Artist-HarmonyHub-Front-end/static/js/main.ab7569d7.js.map",
     "787.be1fdb99.chunk.js.map": "/Artist-HarmonyHub-Front-end/static/js/787.be1fdb99.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.486590c5.css",
-    "static/js/main.b323b923.js"
+    "static/css/main.f1926809.css",
+    "static/js/main.ab7569d7.js"
   ]
 }

@@ -17,22 +17,21 @@ function SearchArtist({ token }) {
   };
 
   return (
-    <div className="mt-12 w-[340px] md:w-[730px] lg:w-[950px] xl:w-[1300px]">
-      <div className="px-4 md:px-20">
-        <h1 className="mb-9 text-xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 md:text-3xl lg:pl-0">
+    <div className="mt-12 ">
+      <div className="px-3 mx-auto max-w-[1000px] xl:w-[1000px]">
+        <h1 className="mb-12 text-xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 md:text-3xl lg:pl-0">
           Search For Artist
         </h1>
         <SearchBar onSearch={handleSearch} />
       </div>
       {searchHistory === null ? (
-        <div className="mt-4">
-          <h3 className="text-3xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl">
-            {" "}
+        <div className="mt-9">
+          <h3 className="text-2xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl">
             Search For An Artist
           </h3>
         </div>
       ) : (
-        <div>
+        <div className="mx-auto max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1300px]">
           <ArtistHero id={searchHistory} token={token} />
           <TopTracks id={searchHistory} token={token} />
           <ArtistAlbums id={searchHistory} token={token} />

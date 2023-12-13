@@ -43,7 +43,7 @@ function FavoriteTrack() {
         {topTracks.map((track) => {
           return (
             <SwiperSlide>
-              <TrackCard data={track} buttonText="Unfavorite" />
+              <TrackCard data={track} buttonText="Unfavorite" section="favorite"/>
             </SwiperSlide>
           );
         })}

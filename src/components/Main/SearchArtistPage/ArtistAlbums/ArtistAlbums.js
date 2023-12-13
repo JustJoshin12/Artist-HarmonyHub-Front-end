@@ -12,7 +12,7 @@ function ArtistAlbums({ id, token }) {
   }, [token, id]);
 
   return (
-    <div className="my-[90px] mx-4">
+    <div className="my-[90px]">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">Albums</p>
       {artistAlbums.length === 0 ? (
         <div className="mt-4">
@@ -21,7 +21,7 @@ function ArtistAlbums({ id, token }) {
           </h3>
         </div>
       ) : (
-        <ul className="grid mb-14 gap-10 justify-center sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="grid mb-14 gap-10 justify-center sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 ">
           {artistAlbums.map((album) => {
             return <AlbumIcon data={album}></AlbumIcon>;
           })}

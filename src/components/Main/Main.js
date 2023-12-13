@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 
 function Main({ topArtistData, newReleaseData, token, recommendations }) {
   return (
-    <main className=" mt-20 max-w-[1300px] mx-auto">
+    <main className=" mt-20 mx-auto">
       <Router>
         <Route
           exact
@@ -27,7 +27,7 @@ function Main({ topArtistData, newReleaseData, token, recommendations }) {
 
         <Route
           path="/Artist-HarmonyHub-Front-end/favorites"
-          render={() => <FavoritePage />}
+          render={() => <FavoritePage/>}
         />
         <Redirect to="/Artist-HarmonyHub-Front-end" />
       </Router>
@@ -36,3 +36,6 @@ function Main({ topArtistData, newReleaseData, token, recommendations }) {
 }
 
 export default Main;
+
+
+

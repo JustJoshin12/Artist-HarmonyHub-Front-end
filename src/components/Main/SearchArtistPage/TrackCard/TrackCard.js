@@ -10,10 +10,13 @@ function TrackCard({ data, buttonText, section }) {
   const image = () => {
     if (section === "recommendation") {
       return data?.images[0].url;
+    } else if (section === "favorite") {
+      return data?.image;
     } else {
       return data?.album?.images[0]?.url;
     }
   };
+
 
   return (
     <div className="flex justify-center">

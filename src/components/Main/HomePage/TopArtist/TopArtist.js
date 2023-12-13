@@ -30,13 +30,18 @@ function TopArtist({ topArtistData }) {
       <Swiper
         breakpoints={{
           340: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          420: {
             slidesPerView: 2,
-            spaceBetween: 90,
+            spaceBetween: 10,
           },
-          650: {
+          640: {
             slidesPerView: 3,
-            spaceBetween: 12,
+            spaceBetween: 20,
           },
+
           1300: {
             slidesPerView: 3,
             spaceBetween: 90,
@@ -52,7 +57,7 @@ function TopArtist({ topArtistData }) {
       >
         {filteredArtists.map((artist) => {
           return (
-            <SwiperSlide key={artist.id} className="w-[300px]">
+            <SwiperSlide key={artist.id} className="w-[90%]">
               <ArtistIcon data={artist} />
             </SwiperSlide>
           );

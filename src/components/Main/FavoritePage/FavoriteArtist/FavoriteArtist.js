@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,6 +10,7 @@ import { topArtist } from "../../../../utils/constant";
 import ArtistIcon from "../../HomePage/TopArtist/ArtistIcon/ArtistIcon";
 
 function FavoriteArtist() {
+ 
   return (
     <section className="mb-16">
       <h3 className="mb-8 text-3xl font-[Poppins] font-bold xl:text-4xl">
@@ -41,7 +43,7 @@ function FavoriteArtist() {
         {topArtist.map((artist) => {
           return (
             <SwiperSlide>
-              <ArtistIcon data={artist} />
+              <ArtistIcon key={artist.name} data={artist} section="favorite"/>
             </SwiperSlide>
           );
         })}

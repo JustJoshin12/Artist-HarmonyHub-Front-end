@@ -4,10 +4,9 @@ import FavoriteAlbums from "./FavoriteAlbum/FavoriteAlbum";
 
 function FavoritePage() {
   return (
-    <div className="w-[340px] md:w-[730px] lg:w-[950px] xl:w-[1300px]">
+    <div className="max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1300px]">
       <FavoriteArtist />
-      <FavoriteTrack />
-      <FavoriteAlbums />
+      <FavoriteTrack/>
     </div>
   );
 }

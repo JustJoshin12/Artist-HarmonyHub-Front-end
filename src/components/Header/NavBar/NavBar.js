@@ -38,9 +38,9 @@ function NavBar({ onEdit }) {
               <h2>Profile</h2>
               <ul>
                 <li>
-                  <div tabIndex={0} role="button">
+                  <Link to="/Artist-HarmonyHub-Front-end/favorites">
                     Favorites
-                  </div>
+                  </Link>
                 </li>
                 <li>
                   <div role="button" tabIndex={0} onClick={onEdit}>

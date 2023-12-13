@@ -77,7 +77,7 @@ function App() {
   }, [authToken]);
 
   return (
-    <div className="bg-black p-3 text-white flex flex-col items-center ">
+    <div className="bg-black py-3 md:p-3 text-white flex flex-col items-center ">
       <Header
         onEditModal={handleEditModal}
         onLoginModal={handleLoginModal}

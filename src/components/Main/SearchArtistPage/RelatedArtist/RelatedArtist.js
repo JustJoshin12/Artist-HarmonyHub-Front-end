@@ -34,20 +34,25 @@ function RelatedArtists({ token, id }) {
         <Swiper
           breakpoints={{
             340: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            420: {
               slidesPerView: 2,
-              spaceBetween: 60,
+              spaceBetween: 10,
             },
-            650: {
+            640: {
               slidesPerView: 3,
-              spaceBetween: 12,
+              spaceBetween: 20,
             },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 40,
+
+            1300: {
+              slidesPerView: 3,
+              spaceBetween: 90,
             },
             1400: {
               slidesPerView: 5,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
           }}
           freeMode={true}
@@ -56,7 +61,7 @@ function RelatedArtists({ token, id }) {
         >
           {relatedArtists.map((artist) => {
             return (
-              <SwiperSlide key={artist.id}>
+              <SwiperSlide key={artist.id} className="w-[190px]">
                 <ArtistIcon data={artist} />
               </SwiperSlide>
             );

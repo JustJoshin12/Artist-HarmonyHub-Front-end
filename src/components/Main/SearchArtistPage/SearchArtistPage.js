@@ -11,8 +11,12 @@ function SearchArtist({ token }) {
   const [searchHistory, setSearchHistory] = useState(null);
 
   const handleSearch = (searchTerm) => {
-    getArtistId(token, searchTerm).then((data) => {
+    getArtistId(token, searchTerm)
+    .then((data) => {
       setSearchHistory(data.artists.items[0].id);
+    })
+    .catch((err) => {
+      console.error(err);
     });
   };
 
@@ -31,7 +35,7 @@ function SearchArtist({ token }) {
           </h3>
         </div>
       ) : (
-        <div className="mx-auto max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1300px]">
+        <div className="mx-auto max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1200px] 2xl:max-w-[1300px]">
           <ArtistHero id={searchHistory} token={token} />
           <TopTracks id={searchHistory} token={token} />
           <ArtistAlbums id={searchHistory} token={token} />

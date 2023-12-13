@@ -31,14 +31,14 @@ function NavBar({ onEdit }) {
           >
             <li>
               <div role="button" tabIndex={0}>
-                <Link to="/Artist-HarmonyHub-Front-end">Home</Link>
+                <Link to="/">Home</Link>
               </div>
             </li>
             <li>
               <h2>Profile</h2>
               <ul>
                 <li>
-                  <Link to="/Artist-HarmonyHub-Front-end/favorites">
+                  <Link to="/favorites">
                     Favorites
                   </Link>
                 </li>
@@ -56,7 +56,7 @@ function NavBar({ onEdit }) {
             </li>
             <li>
               <div role="button" tabIndex={0}>
-                <Link to="/Artist-HarmonyHub-Front-end/artist">
+                <Link to="/artist">
                   Search Artist
                 </Link>
               </div>
@@ -68,7 +68,7 @@ function NavBar({ onEdit }) {
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
             <Link
-              to="/Artist-HarmonyHub-Front-end"
+              to="/"
               className="text-2xl font-bold"
             >
               Home
@@ -82,7 +82,7 @@ function NavBar({ onEdit }) {
               <ul className="p-2 text-black left-[50px]">
                 <li>
                   <Link
-                    to="/Artist-HarmonyHub-Front-end/favorites"
+                    to="/favorites"
                     className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
                   >
                     Favorites
@@ -106,7 +106,7 @@ function NavBar({ onEdit }) {
           </li>
           <li>
             <Link
-              to="/Artist-HarmonyHub-Front-end/artist"
+              to="/artist"
               className="text-2xl font-bold"
             >
               Search Artist

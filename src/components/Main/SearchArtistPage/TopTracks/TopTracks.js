@@ -32,9 +32,9 @@ function TopTracks({ id, token }) {
             slidesPerView: 3,
             spaceBetween: 12,
           },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 10,
           },
           1400: {
             slidesPerView: 5,

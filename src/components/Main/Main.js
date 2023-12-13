@@ -9,7 +9,7 @@ function Main({ topArtistData, newReleaseData, token, recommendations }) {
       <Router>
         <Route
           exact
-          path="/Artist-HarmonyHub-Front-end"
+          path="/"
           render={() => (
             <HomePage
               topArtistData={topArtistData}
@@ -21,15 +21,15 @@ function Main({ topArtistData, newReleaseData, token, recommendations }) {
         />
 
         <Route
-          path="/Artist-HarmonyHub-Front-end/artist"
+          path="/artist"
           render={() => <SearchArtist token={token} />}
         />
 
         <Route
-          path="/Artist-HarmonyHub-Front-end/favorites"
+          path="/favorites"
           render={() => <FavoritePage/>}
         />
-        <Redirect to="/Artist-HarmonyHub-Front-end" />
+        <Redirect to="/" />
       </Router>
     </main>
   );

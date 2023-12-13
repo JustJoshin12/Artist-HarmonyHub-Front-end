@@ -12,8 +12,6 @@ import TrackCard from "../../SearchArtistPage/TrackCard/TrackCard";
 function Recommendation({ recommendations }) {
   const [loggedIn, setLoggedIn] = useState(true);
 
-  console.log(recommendations)
-
   return (
     <section>
       <h3 className=" text-2xl md:text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-2 md:pl-4 mb-7">
@@ -35,9 +33,9 @@ function Recommendation({ recommendations }) {
               spaceBetween: 20,
             },
 
-            1300: {
-              slidesPerView: 3,
-              spaceBetween: 90,
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 10,
             },
             1400: {
               slidesPerView: 5,

@@ -29,7 +29,7 @@ function ArtistHero({ id, token }) {
             </h1>
             <div className="py-3 md:py-6">
               <p className="font-mono font-semibold tracking-wide text-black text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                Popularity{" "}
+                Popularity
                 <span className="text-white">
                   {artistInfo?.popularity} rating
                 </span>

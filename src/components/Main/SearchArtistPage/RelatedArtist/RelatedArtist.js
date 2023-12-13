@@ -46,9 +46,9 @@ function RelatedArtists({ token, id }) {
               spaceBetween: 20,
             },
 
-            1300: {
-              slidesPerView: 3,
-              spaceBetween: 90,
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 10,
             },
             1400: {
               slidesPerView: 5,

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getArtistInfo } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 
-function ArtistHero({ id, token }) {
+
+function ArtistHero({ id, token, favoriteProps, loggedIn }) {
   const [artistInfo, setArtistInfo] = useState(null);
 
   useEffect(() => {
@@ -11,8 +12,21 @@ function ArtistHero({ id, token }) {
   }, [token, id]);
 
   const handleFavoriteArtist = () => {
-    console.log(artistInfo);
+    favoriteProps.onAddArtist({
+      name: artistInfo.name,
+      image: artistInfo?.images[0].url,
+      followers: artistInfo?.followers?.total,
+    });
   };
+
+  const favoriteBtn = () => {
+    return(<button
+      className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40"
+      onClick={handleFavoriteArtist}
+    >
+      Favorite Artist
+    </button>)
+  }
 
   return (
     <div className="mt-[150px]">
@@ -41,12 +55,7 @@ function ArtistHero({ id, token }) {
                 </span>
               </p>
             </div>
-            <button
-              className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40"
-              onClick={handleFavoriteArtist}
-            >
-              Favorite Artist
-            </button>
+            {loggedIn && favoriteBtn()}
           </div>
         </div>
       </div>

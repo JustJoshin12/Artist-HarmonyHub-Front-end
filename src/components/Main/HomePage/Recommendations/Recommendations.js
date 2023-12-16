@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,9 +8,8 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
 import TrackCard from "../../SearchArtistPage/TrackCard/TrackCard";
 
-function Recommendation({ recommendations }) {
-  const [loggedIn, setLoggedIn] = useState(true);
-
+function Recommendation({ recommendations, favoriteProps, loggedIn }) {
+  
   return (
     <section>
       <h3 className=" text-2xl md:text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-2 md:pl-4 mb-7">
@@ -54,6 +52,8 @@ function Recommendation({ recommendations }) {
                   data={item}
                   buttonText="favorite"
                   section="recommendation"
+                  favoriteProps={favoriteProps}
+                  loggedIn={loggedIn}
                 />
               </SwiperSlide>
             );

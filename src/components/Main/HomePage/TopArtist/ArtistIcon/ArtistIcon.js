@@ -1,6 +1,7 @@
+import ArtistAddButton from "./ArtistAddBtn";
+import ArtistDeleteButton from "./ArtistDeleteBtn";
 
-
-function ArtistIcon({ data, section }) {
+function ArtistIcon({ data, section, favoriteProps, loggedIn}) {
   
   const image = () => {
     if (section === "favorite") {
@@ -18,6 +19,14 @@ function ArtistIcon({ data, section }) {
     }
   };
 
+  const likeBtn = () => {
+    if(section === "favorite"){
+      return( <ArtistDeleteButton onDelete={favoriteProps.onDeleteArtist} data={data}/>)
+    } else {
+      return(<ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data}/>)
+    }
+  }
+
   return (
     <div className="flex items-center flex-col">
       <div className="">
@@ -31,9 +40,12 @@ function ArtistIcon({ data, section }) {
       </div>
 
       <div className="w-[170px]">
-        <h3 className="font-semibold font-['Poppins'] mt-3 truncate">
-          {data.name}
-        </h3>
+        <div className="flex flex-row justify-between">
+          <h3 className="font-semibold font-['Poppins'] mt-3 truncate pb-1">
+            {data.name}
+          </h3>
+          {loggedIn && likeBtn()}
+        </div>
         <p className="font-semibold">Followers: {followers()}</p>
       </div>
     </div>
@@ -41,3 +53,10 @@ function ArtistIcon({ data, section }) {
 }
 
 export default ArtistIcon;
+
+
+// {section === "favorite" ? (
+//   <ArtistDeleteButton onDelete={favoriteProps.onDeleteArtist} data={data}/>
+// ) : (
+//   <ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data}/>
+// )}

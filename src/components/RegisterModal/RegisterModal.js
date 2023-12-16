@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-function RegisterModal({ onClose, isOpen }) {
+function RegisterModal({ onClose, isOpen, handleRegistration}) {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +31,13 @@ function RegisterModal({ onClose, isOpen }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
+      name: name,
+      userName: userName,
+      password: password,
+      email: email,
+      avatar: avatar,
+    })
+    handleRegistration({
       name: name,
       userName: userName,
       password: password,
@@ -80,6 +87,7 @@ function RegisterModal({ onClose, isOpen }) {
           name="username"
           required
           placeholder="UserName"
+          autoComplete="username"
           value={userName}
           onChange={handleUserNameChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
@@ -92,6 +100,7 @@ function RegisterModal({ onClose, isOpen }) {
         <input
           type="password"
           name="password"
+          autoComplete="current-password"
           required
           placeholder="Password"
           value={password}

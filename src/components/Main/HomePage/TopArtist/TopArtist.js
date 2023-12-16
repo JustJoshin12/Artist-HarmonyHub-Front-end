@@ -7,7 +7,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function TopArtist({ topArtistData }) {
+function TopArtist({ topArtistData, favoriteProps, loggedIn }) {
   const filterArtists = (artists) => {
     // Filter artists based on criteria
     return artists.filter((artist) => {
@@ -58,7 +58,7 @@ function TopArtist({ topArtistData }) {
         {filteredArtists.map((artist) => {
           return (
             <SwiperSlide key={artist.id} className="w-[90%]">
-              <ArtistIcon data={artist} />
+              <ArtistIcon data={artist} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
             </SwiperSlide>
           );
         })}

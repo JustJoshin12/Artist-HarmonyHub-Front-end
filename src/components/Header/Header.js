@@ -12,7 +12,7 @@ function Header({ onEditModal, onLoginModal, onRegisterModal, onLogOut, loggedIn
 
   return (
     <header className="w-[80%] flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 sm:grid-cols-1 sm:grid-rows-3 md:w-[70%]">
-      <div className="flex items-center justify-start mt-6 md:justify-normal">
+      <div className="flex items-center justify-start mt-6 mb-2 md:justify-normal">
         <h1 className="text-3xl font-bold text-white font-['Oswald'] md:text-2xl lg:text-3xl xl:text-5xl">
           Artist HarmonyHub
         </h1>

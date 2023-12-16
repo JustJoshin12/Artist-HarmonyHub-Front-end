@@ -48,6 +48,7 @@ function FavoriteTrack({ favoriteTracks, favoriteProps, loggedIn }) {
                   section="favorite"
                   favoriteProps={favoriteProps}
                   loggedIn={loggedIn}
+                  key={track.id}
                 />
               </SwiperSlide>
             );

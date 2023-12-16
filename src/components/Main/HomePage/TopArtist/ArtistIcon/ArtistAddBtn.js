@@ -11,7 +11,7 @@ const ArtistAddButton = ({ onAdd, data }) => {
   };
 
   return (
-    <button className="mr-3 hover:scale-125" onClick={addArtist}>
+    <button className="hover:scale-125" onClick={addArtist}>
       <img src={heart} className="w-6 h-6" alt="heart" />
     </button>
   );

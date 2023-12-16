@@ -44,7 +44,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
             <div className="py-3 md:py-6">
               <p className="font-mono font-semibold tracking-wide text-black text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                 Popularity
-                <span className="text-white">
+                <span className="text-white pl-2">
                   {artistInfo?.popularity} rating
                 </span>
               </p>

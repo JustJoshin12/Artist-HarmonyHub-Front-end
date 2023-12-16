@@ -5,7 +5,7 @@ const ArtistDeleteButton = ({ onDelete, data }) => {
     onDelete(data);
   };
   return (
-    <button className="mr-3" onClick={deleteArtist}>
+    <button className="hover:scale-125" onClick={deleteArtist}>
       <img src={trashCan} className="w-6 h-6" alt="trash can" />
     </button>
   );

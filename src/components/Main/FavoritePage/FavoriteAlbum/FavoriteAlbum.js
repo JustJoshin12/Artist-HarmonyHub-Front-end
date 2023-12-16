@@ -12,7 +12,7 @@ function FavoriteAlbums({ favoriteAlbums, favoriteProps, loggedIn }) {
       ) : (
         <ul className="grid gap-10 justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {favoriteAlbums.map((data) => {
-            return <AlbumIcon data={data} section="favorite" buttonText="Unfavorite" favoriteProps={favoriteProps} loggedIn={loggedIn}/>;
+            return <AlbumIcon key={data.id} data={data} section="favorite" buttonText="Unfavorite" favoriteProps={favoriteProps} loggedIn={loggedIn}/>;
           })}
         </ul>
       )}

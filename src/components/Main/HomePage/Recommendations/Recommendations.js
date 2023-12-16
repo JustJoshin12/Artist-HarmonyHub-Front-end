@@ -46,9 +46,9 @@ function Recommendation({ recommendations, favoriteProps, loggedIn }) {
         >
           {recommendations.map((item) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={item.id}>
                 <TrackCard
-                  key={item.name}
+                  key={item.id}
                   data={item}
                   buttonText="favorite"
                   section="recommendation"

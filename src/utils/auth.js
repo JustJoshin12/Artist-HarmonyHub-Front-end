@@ -1,6 +1,8 @@
 import { checkResponse } from "./api";
 
-export const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === 'production' 
+  ? 'deployed-backend-url'
+  : 'http://localhost:3001';
 
 export const signin = ({email, password}) => {
     return fetch(`${baseUrl}/signin`, {

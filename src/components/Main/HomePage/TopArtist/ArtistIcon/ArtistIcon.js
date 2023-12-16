@@ -39,7 +39,7 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn}) {
         </div>
       </div>
 
-      <div className="w-[170px]">
+      <div className="w-[170px] p-2">
         <div className="flex flex-row justify-between">
           <h3 className="font-semibold font-['Poppins'] mt-3 truncate pb-1">
             {data.name}

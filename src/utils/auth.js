@@ -1,7 +1,7 @@
 import { checkResponse } from "./api";
 
 const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'http://api.ArtistHarmonyHub.crabdance.com'
+  ? 'https://api.ArtistHarmonyHub.crabdance.com'
   : 'http://localhost:3001';
 
 export const signin = ({email, password}) => {

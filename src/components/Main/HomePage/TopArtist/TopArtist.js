@@ -7,7 +7,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function TopArtist({ topArtistData }) {
+function TopArtist({ topArtistData, favoriteProps, loggedIn }) {
   const filterArtists = (artists) => {
     // Filter artists based on criteria
     return artists.filter((artist) => {
@@ -22,7 +22,7 @@ function TopArtist({ topArtistData }) {
   const filteredArtists = filterArtists(topArtistData);
 
   return (
-    <div className=" px-6 py-5 rounded-lg ">
+    <div className=" px-2 py-5 rounded-lg ">
       <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
         Top Artist
       </h3>
@@ -31,9 +31,9 @@ function TopArtist({ topArtistData }) {
         breakpoints={{
           340: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
-          420: {
+          450: {
             slidesPerView: 2,
             spaceBetween: 10,
           },
@@ -42,11 +42,11 @@ function TopArtist({ topArtistData }) {
             spaceBetween: 20,
           },
 
-          1200: {
+          800: {
             slidesPerView: 4,
             spaceBetween: 10,
           },
-          1400: {
+          1200: {
             slidesPerView: 5,
             spaceBetween: 10,
           },
@@ -58,7 +58,7 @@ function TopArtist({ topArtistData }) {
         {filteredArtists.map((artist) => {
           return (
             <SwiperSlide key={artist.id} className="w-[90%]">
-              <ArtistIcon data={artist} />
+              <ArtistIcon data={artist} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
             </SwiperSlide>
           );
         })}

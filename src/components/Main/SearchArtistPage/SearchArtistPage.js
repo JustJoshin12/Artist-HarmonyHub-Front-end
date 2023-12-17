@@ -7,7 +7,7 @@ import RelatedArtists from "./RelatedArtist/RelatedArtist";
 import { useState } from "react";
 import { getArtistId } from "../../../utils/SpotifyAPI/SpotifyAPI";
 
-function SearchArtist({ token }) {
+function SearchArtist({ token, favoriteProps, loggedIn }) {
   const [searchHistory, setSearchHistory] = useState(null);
 
   const handleSearch = (searchTerm) => {
@@ -36,10 +36,10 @@ function SearchArtist({ token }) {
         </div>
       ) : (
         <div className="mx-auto max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1200px] 2xl:max-w-[1300px]">
-          <ArtistHero id={searchHistory} token={token} />
-          <TopTracks id={searchHistory} token={token} />
-          <ArtistAlbums id={searchHistory} token={token} />
-          <RelatedArtists id={searchHistory} token={token} />
+          <ArtistHero id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
+          <TopTracks id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
+          <ArtistAlbums id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
+          <RelatedArtists id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
         </div>
       )}
     </div>

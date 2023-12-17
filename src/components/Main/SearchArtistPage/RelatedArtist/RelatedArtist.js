@@ -9,7 +9,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function RelatedArtists({ token, id }) {
+function RelatedArtists({ token, id, favoriteProps, loggedIn }) {
   const [relatedArtists, setRelatedArtists] = useState([]);
 
   useEffect(() => {
@@ -25,10 +25,9 @@ function RelatedArtists({ token, id }) {
       </p>
       {relatedArtists.length === 0 ? (
         <div className="mt-4">
-          <h3 className="text-3xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl">
-            {" "}
+          <p className="text-3xl text-gray-800/80 font-bold min-h-[150px] text-center pt-14 font-[Poppins] md:text-4xl lg:text-5xl xl:text-6xl">
             No Related Artists
-          </h3>
+          </p>
         </div>
       ) : (
         <Swiper
@@ -37,7 +36,7 @@ function RelatedArtists({ token, id }) {
               slidesPerView: 1,
               spaceBetween: 10,
             },
-            420: {
+            450: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
@@ -46,11 +45,11 @@ function RelatedArtists({ token, id }) {
               spaceBetween: 20,
             },
 
-            1200: {
+            800: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
-            1400: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 10,
             },
@@ -62,7 +61,7 @@ function RelatedArtists({ token, id }) {
           {relatedArtists.map((artist) => {
             return (
               <SwiperSlide key={artist.id} className="w-[190px]">
-                <ArtistIcon data={artist} />
+                <ArtistIcon data={artist} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
               </SwiperSlide>
             );
           })}

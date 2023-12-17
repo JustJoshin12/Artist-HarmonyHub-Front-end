@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavBar({ onEdit }) {
+function NavBar({ onEdit, onLogOut, loggedIn }) {
   return (
     <div className="navbar mt-5 bg-black col-span-2">
       <div className="navbar-start">
@@ -34,13 +34,10 @@ function NavBar({ onEdit }) {
                 <Link to="/">Home</Link>
               </div>
             </li>
-            <li>
-              <h2>Profile</h2>
+            {loggedIn ? (
               <ul>
                 <li>
-                  <Link to="/favorites">
-                    Favorites
-                  </Link>
+                  <Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
                   <div role="button" tabIndex={0} onClick={onEdit}>
@@ -48,17 +45,17 @@ function NavBar({ onEdit }) {
                   </div>
                 </li>
                 <li>
-                  <div role="button" tabIndex={0}>
+                  <div role="button" tabIndex={0} onClick={onLogOut}>
                     Log Out
                   </div>
                 </li>
               </ul>
-            </li>
+            ) : (
+              <></>
+            )}
             <li>
               <div role="button" tabIndex={0}>
-                <Link to="/artist">
-                  Search Artist
-                </Link>
+                <Link to="/artist">Search Artist</Link>
               </div>
             </li>
           </ul>
@@ -67,48 +64,49 @@ function NavBar({ onEdit }) {
       <div className="navbar-center hidden min-[1025px]:flex">
         <ul className="menu menu-horizontal px-1 gap-12 font-['Poppins']">
           <li>
-            <Link
-              to="/"
-              className="text-2xl font-bold"
-            >
+            <Link to="/" className="text-2xl font-bold">
               Home
             </Link>
           </li>
           <li>
-            <details>
-              <summary className="btn btn-ghost btn-wide text-2xl">
-                Profile
-              </summary>
-              <ul className="p-2 text-black left-[50px]">
-                <li>
-                  <Link
-                    to="/favorites"
-                    className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
-                  >
-                    Favorites
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
-                    onClick={onEdit}
-                  >
-                    Edit Profile
-                  </button>
-                </li>
-                <li>
-                  <button className="font-['Poppins'] text-xl font-bold tracking-wide text-center">
-                    Log Out
-                  </button>
-                </li>
-              </ul>
-            </details>
+            {loggedIn ? (
+              <details>
+                <summary className="btn btn-ghost btn-wide text-2xl">
+                  Profile
+                </summary>
+                <ul className="p-2 text-black left-[50px]">
+                  <li>
+                    <Link
+                      to="/favorites"
+                      className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
+                    >
+                      Favorites
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
+                      onClick={onEdit}
+                    >
+                      Edit Profile
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="font-['Poppins'] text-xl font-bold tracking-wide text-center"
+                      onClick={onLogOut}
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
+              </details>
+            ) : (
+              <></>
+            )}
           </li>
           <li>
-            <Link
-              to="/artist"
-              className="text-2xl font-bold"
-            >
+            <Link to="/artist" className="text-2xl font-bold">
               Search Artist
             </Link>
           </li>

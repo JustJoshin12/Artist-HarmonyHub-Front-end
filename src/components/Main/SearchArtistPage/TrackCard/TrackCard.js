@@ -1,9 +1,17 @@
-function TrackCard({ data, buttonText, section }) {
+function TrackCard({ data, buttonText, section, favoriteProps, loggedIn }) {
   const handleButtonAction = () => {
-    if (buttonText === "favorite") {
-      console.log(data);
+    if (buttonText === "favorite" && section === "recommendation") {
+      favoriteProps.onAddTrack({
+        name: data?.name,
+        image: data?.images[0]?.url,
+      });
+    } else if (buttonText === "favorite") {
+      favoriteProps.onAddTrack({
+        name: data?.name,
+        image: data?.album?.images[0]?.url,
+      });
     } else {
-      console.log("removed");
+      favoriteProps.onDeleteTrack(data);
     }
   };
 
@@ -17,6 +25,16 @@ function TrackCard({ data, buttonText, section }) {
     }
   };
 
+  const favoriteBtn = () => {
+    return (
+      <button
+        className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50"
+        onClick={handleButtonAction}
+      >
+        {buttonText}
+      </button>
+    );
+  };
 
   return (
     <div className="flex justify-center">
@@ -36,12 +54,7 @@ function TrackCard({ data, buttonText, section }) {
           <p className="text-lg font-[Poppins] font-semibold text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {data?.name}
           </p>
-          <button
-            className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50"
-            onClick={handleButtonAction}
-          >
-            {buttonText}
-          </button>
+          {loggedIn && favoriteBtn()}
         </div>
       </div>
     </div>

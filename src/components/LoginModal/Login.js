@@ -1,12 +1,12 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-function LoginModal({ onClose, isOpen }) {
-  const [userName, setUserName] = useState("");
+function LoginModal({ onClose, isOpen, handleLogin }) {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -15,8 +15,8 @@ function LoginModal({ onClose, isOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      username: userName,
+    handleLogin({
+      email: email,
       password: password,
     });
     onClose();
@@ -24,7 +24,7 @@ function LoginModal({ onClose, isOpen }) {
 
   useEffect(() => {
     if (isOpen) {
-      setUserName("");
+      setEmail("");
       setPassword("");
     }
   }, [isOpen]);
@@ -38,15 +38,15 @@ function LoginModal({ onClose, isOpen }) {
     >
       <label className="my-3">
         <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
-          UserName
+          Email
         </p>
         <input
           type="text"
-          name="username"
+          name="email"
           required
-          placeholder="username"
-          value={userName}
-          onChange={handleUserNameChange}
+          placeholder="email"
+          value={email}
+          onChange={handleEmailChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
@@ -61,6 +61,7 @@ function LoginModal({ onClose, isOpen }) {
           placeholder="password"
           value={password}
           onChange={handlePasswordChange}
+          autoComplete="current-password"
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>

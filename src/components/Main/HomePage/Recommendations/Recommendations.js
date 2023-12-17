@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,9 +8,8 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
 import TrackCard from "../../SearchArtistPage/TrackCard/TrackCard";
 
-function Recommendation({ recommendations }) {
-  const [loggedIn, setLoggedIn] = useState(true);
-
+function Recommendation({ recommendations, favoriteProps, loggedIn }) {
+  
   return (
     <section>
       <h3 className=" text-2xl md:text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-2 md:pl-4 mb-7">
@@ -22,9 +20,9 @@ function Recommendation({ recommendations }) {
           breakpoints={{
             340: {
               slidesPerView: 1,
-              spaceBetween: 20,
+              spaceBetween: 0,
             },
-            420: {
+            450: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
@@ -33,11 +31,11 @@ function Recommendation({ recommendations }) {
               spaceBetween: 20,
             },
 
-            1200: {
+            800: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
-            1400: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 10,
             },
@@ -48,12 +46,14 @@ function Recommendation({ recommendations }) {
         >
           {recommendations.map((item) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={item.id}>
                 <TrackCard
-                  key={item.name}
+                  key={item.id}
                   data={item}
                   buttonText="favorite"
                   section="recommendation"
+                  favoriteProps={favoriteProps}
+                  loggedIn={loggedIn}
                 />
               </SwiperSlide>
             );

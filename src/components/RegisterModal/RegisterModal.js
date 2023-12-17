@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-function RegisterModal({ onClose, isOpen }) {
+function RegisterModal({ onClose, isOpen, handleRegistration}) {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +36,13 @@ function RegisterModal({ onClose, isOpen }) {
       password: password,
       email: email,
       avatar: avatar,
+    })
+    handleRegistration({
+      name: name,
+      userName: userName,
+      password: password,
+      email: email,
+      avatar: avatar,
     });
     onClose();
   };
@@ -57,8 +64,8 @@ function RegisterModal({ onClose, isOpen }) {
       title="Register"
       buttonText="sign up"
     >
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Name
         </p>
         <input
@@ -71,8 +78,8 @@ function RegisterModal({ onClose, isOpen }) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           User Name
         </p>
         <input
@@ -80,18 +87,20 @@ function RegisterModal({ onClose, isOpen }) {
           name="username"
           required
           placeholder="UserName"
+          autoComplete="username"
           value={userName}
           onChange={handleUserNameChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Password
         </p>
         <input
           type="password"
           name="password"
+          autoComplete="current-password"
           required
           placeholder="Password"
           value={password}
@@ -99,8 +108,8 @@ function RegisterModal({ onClose, isOpen }) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Email
         </p>
         <input
@@ -113,8 +122,8 @@ function RegisterModal({ onClose, isOpen }) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Avatar
         </p>
         <input

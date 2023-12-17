@@ -1,14 +1,18 @@
 import Logo from "../../images/websiteLogo.png";
 import NavBar from "./NavBar/NavBar";
 import UserInfoIcon from "./UserInfo/UserInfo";
-import { useState } from "react";
+import UserDataContext from "../contexts/userDataContext";
+import {useContext} from "react";
 
-function Header({ onEditModal, onLoginModal, onRegisterModal }) {
-  const [loggedIn, setLoggedIn] = useState(false);
+
+function Header({ onEditModal, onLoginModal, onRegisterModal, onLogOut, loggedIn }) {
+  
+  const currentUser = useContext(UserDataContext);
+
 
   return (
     <header className="w-[80%] flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 sm:grid-cols-1 sm:grid-rows-3 md:w-[70%]">
-      <div className="flex items-center justify-start mt-6 md:justify-normal">
+      <div className="flex items-center justify-start mt-6 mb-2 md:justify-normal">
         <h1 className="text-3xl font-bold text-white font-['Oswald'] md:text-2xl lg:text-3xl xl:text-5xl">
           Artist HarmonyHub
         </h1>
@@ -19,7 +23,7 @@ function Header({ onEditModal, onLoginModal, onRegisterModal }) {
         />
       </div>
       {loggedIn ? (
-        <UserInfoIcon />
+        <UserInfoIcon data={currentUser}/>
       ) : (
         <div className="grid grid-cols-2 my-auto justify-end p-2 items-center mt-5">
           <button
@@ -37,7 +41,7 @@ function Header({ onEditModal, onLoginModal, onRegisterModal }) {
         </div>
       )}
 
-      <NavBar onEdit={onEditModal} />
+      <NavBar onEdit={onEditModal} onLogOut={onLogOut} loggedIn={loggedIn}/>
     </header>
   );
 }

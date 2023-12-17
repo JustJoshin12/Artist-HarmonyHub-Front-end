@@ -1,5 +1,5 @@
 {
-  "homepage": "https://justjoshin12.github.io/Artist-HarmonyHub-Front-end",
+  "homepage": "https://ArtistHarmonyHub.crabdance.com",
   "name": "spotify-artist-search",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && scp -r ./build/* myherodekuultra@34.121.190.232:/home/myherodekuultra/front-end"
+
   },
   "eslintConfig": {
     "extends": [

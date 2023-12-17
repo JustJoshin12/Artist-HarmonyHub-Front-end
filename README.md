@@ -9,4 +9,4 @@ React tailwindcss swiper.js
 
 ## Links
 
-- [Website](https://justjoshin12.github.io/Artist-HarmonyHub-Front-end/)
+- [Website](https://ArtistHarmonyHub.crabdance.com)

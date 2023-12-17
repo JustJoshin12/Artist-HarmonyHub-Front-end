@@ -8,8 +8,8 @@ function Footer() {
         <div className="font-bold text-2xl mb-4">
           Artist HarmonyHub
           <p className="text-lg mt-4">
-            "Discover, Connect, Groove: Artist HarmonyHub Where Your Favorite
-            Tunes Find Their Perfect Beat!"
+            "Discover, Connect, Groove with Artist HarmonyHub – Where Your
+            Favorite Artists Find Their Perfect Harmony Enthusiast!"
           </p>
         </div>
         <p>Copyright © 2023 - All right reserved</p>

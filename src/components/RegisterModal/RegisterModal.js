@@ -64,8 +64,8 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
       title="Register"
       buttonText="sign up"
     >
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Name
         </p>
         <input
@@ -78,8 +78,8 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           User Name
         </p>
         <input
@@ -93,8 +93,8 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Password
         </p>
         <input
@@ -108,8 +108,8 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Email
         </p>
         <input
@@ -122,8 +122,8 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
-      <label className="my-3">
-        <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
+      <label className="my-1 md:my-3">
+        <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
           Avatar
         </p>
         <input

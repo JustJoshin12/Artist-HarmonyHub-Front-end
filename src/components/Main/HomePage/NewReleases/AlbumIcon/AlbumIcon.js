@@ -58,7 +58,7 @@ function AlbumIcon({ data, section, buttonText, favoriteProps, loggedIn }) {
         <div className="card-actions mr-40">
           {loggedIn && likeBtn()}
         </div>
-        <div className="absolute bottom-9 right-2 pt-4 pr-2">
+        <div className="absolute bottom-6 right-2 pt-4 pr-2">
           <span className="badge font-bold">tracks {trackNumber()}</span>
         </div>
       </div>

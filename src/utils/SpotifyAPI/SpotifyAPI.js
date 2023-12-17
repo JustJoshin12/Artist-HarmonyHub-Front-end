@@ -86,21 +86,25 @@ export const getArtistId = (token, searchInput) => {
 };
 
 export const getArtistInfo = ({ token, id }) => {
-  let parameters = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  if (token === "") {
+    return;
+  } else {
+    let parameters = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-  const artistInfo = fetch(
-    `https://api.spotify.com/v1/artists/${id}`,
-    parameters
-  ).then((res) => {
-    return checkResponse(res);
-  });
+    const artistInfo = fetch(
+      `https://api.spotify.com/v1/artists/${id}`,
+      parameters
+    ).then((res) => {
+      return checkResponse(res);
+    });
 
-  return artistInfo;
+    return artistInfo;
+  }
 };
 
 export const getArtistTopTracks = ({ token, id }) => {
@@ -130,7 +134,7 @@ export const getArtistAlbums = ({ token, id }) => {
   };
 
   const artistAlbums = fetch(
-    `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album&market=US&limit=15&offset=0`,
+    `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album&market=US&limit=20&offset=0`,
     parameters
   ).then((res) => {
     return checkResponse(res);

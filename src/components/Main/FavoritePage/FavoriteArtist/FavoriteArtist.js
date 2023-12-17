@@ -30,9 +30,13 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
               slidesPerView: 3,
               spaceBetween: 12,
             },
-            1300: {
-              slidesPerView: 3,
-              spaceBetween: 90,
+            850: {
+              slidesPerView: 4,
+              spaceBetween: 10
+            },
+            1025: {
+              slidesPerView: 5,
+              spaceBetween: 10,
             },
             1400: {
               slidesPerView: 5,
@@ -45,7 +49,7 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
         >
           {favoriteArtists.map((artist) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={artist.id}>
                 <ArtistIcon
                   key={artist.id}
                   data={artist}

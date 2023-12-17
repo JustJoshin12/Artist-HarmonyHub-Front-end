@@ -20,9 +20,9 @@ function Recommendation({ recommendations, favoriteProps, loggedIn }) {
           breakpoints={{
             340: {
               slidesPerView: 1,
-              spaceBetween: 20,
+              spaceBetween: 0,
             },
-            420: {
+            450: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
@@ -31,11 +31,11 @@ function Recommendation({ recommendations, favoriteProps, loggedIn }) {
               spaceBetween: 20,
             },
 
-            1200: {
+            800: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
-            1400: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 10,
             },

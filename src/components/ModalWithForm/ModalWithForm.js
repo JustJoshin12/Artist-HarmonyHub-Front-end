@@ -24,7 +24,7 @@ function ModalWithForm({
           {children}
           <button
             type="submit"
-            className="btn  text-black font-bold font-seff text-xl mt-8 w-[60%] mx-auto rounded-full border-violet-900 border-2 bg-violet-800/40 hover:bg-violet-900"
+            className="btn  text-black font-bold font-seff text-xl mt-5 md:mt-8 w-[60%] mx-auto rounded-full border-violet-900 border-2 bg-violet-800/40 hover:bg-violet-900"
           >
             {buttonText}
           </button>

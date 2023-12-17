@@ -22,7 +22,7 @@ function TopArtist({ topArtistData, favoriteProps, loggedIn }) {
   const filteredArtists = filterArtists(topArtistData);
 
   return (
-    <div className=" px-6 py-5 rounded-lg ">
+    <div className=" px-2 py-5 rounded-lg ">
       <h3 className="text-3xl font-semibold text-white font-['Poppins'] tracking-wide pl-4 mb-10">
         Top Artist
       </h3>
@@ -31,9 +31,9 @@ function TopArtist({ topArtistData, favoriteProps, loggedIn }) {
         breakpoints={{
           340: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
-          420: {
+          450: {
             slidesPerView: 2,
             spaceBetween: 10,
           },
@@ -42,11 +42,11 @@ function TopArtist({ topArtistData, favoriteProps, loggedIn }) {
             spaceBetween: 20,
           },
 
-          1200: {
+          800: {
             slidesPerView: 4,
             spaceBetween: 10,
           },
-          1400: {
+          1200: {
             slidesPerView: 5,
             spaceBetween: 10,
           },

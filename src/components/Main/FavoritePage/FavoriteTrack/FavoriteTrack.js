@@ -41,7 +41,7 @@ function FavoriteTrack({ favoriteTracks, favoriteProps, loggedIn }) {
         >
           {favoriteTracks.map((track) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={track.id}>
                 <TrackCard
                   data={track}
                   buttonText="Unfavorite"

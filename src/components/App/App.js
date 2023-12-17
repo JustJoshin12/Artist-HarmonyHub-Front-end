@@ -26,6 +26,7 @@ import {
   deleteFavoriteTrack,
   deleteFavoriteArtist,
 } from "../../utils/api";
+import arrow from "../../images/uparrow.png"
 
 function App() {
   const history = useHistory();
@@ -39,6 +40,7 @@ function App() {
   const [favoriteArtists, setFavoriteArtists] = useState([]);
   const [favoriteTracks, setFavoriteTracks] = useState([]);
   const [favoriteAlbums, setFavoriteAlbums] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -55,6 +57,15 @@ function App() {
   const handleRegisterModal = () => {
     setActiveModal("register");
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // For smooth scrolling animation
+    });
+  };
+
+  
 
   useEffect(() => {
     getToken()
@@ -137,6 +148,22 @@ function App() {
       return;
     }
   },[loggedIn]);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", scrollListener);
+
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
   
   const handleLogOut = () => {
     setLoggedIn(false);
@@ -295,6 +322,14 @@ const favoriteProps = {
           favoriteProps={favoriteProps}
         />
         <Footer />
+        {isVisible && (
+        <button
+          className="text-base  font-[Poppins] fixed bottom-4 right-4 2xl:right-10 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onClick={scrollToTop}
+        >
+          Scroll to top
+        </button>
+      )}
         {activeModal === "edit" && (
           <EditProfileModal
             onClose={handleCloseModal}

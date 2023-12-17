@@ -36,7 +36,7 @@ function RelatedArtists({ token, id, favoriteProps, loggedIn }) {
               slidesPerView: 1,
               spaceBetween: 10,
             },
-            450: {
+            425: {
               slidesPerView: 2,
               spaceBetween: 10,
             },

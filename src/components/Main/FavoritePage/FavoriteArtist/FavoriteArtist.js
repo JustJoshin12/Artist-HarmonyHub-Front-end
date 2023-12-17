@@ -23,22 +23,23 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
         <Swiper
           breakpoints={{
             340: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            425: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
-            650: {
+            640: {
               slidesPerView: 3,
-              spaceBetween: 12,
+              spaceBetween: 20,
             },
-            850: {
+
+            800: {
               slidesPerView: 4,
-              spaceBetween: 10
-            },
-            1025: {
-              slidesPerView: 5,
               spaceBetween: 10,
             },
-            1400: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 10,
             },
@@ -49,7 +50,7 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
         >
           {favoriteArtists.map((artist) => {
             return (
-              <SwiperSlide key={artist.id}>
+              <SwiperSlide key={artist.name}>
                 <ArtistIcon
                   key={artist.id}
                   data={artist}

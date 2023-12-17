@@ -19,6 +19,9 @@ function FavoriteTrack({ favoriteTracks, favoriteProps, loggedIn }) {
         <Swiper
           breakpoints={{
             340: {
+              slidesPerView: 1,
+            },
+            425: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
@@ -26,11 +29,11 @@ function FavoriteTrack({ favoriteTracks, favoriteProps, loggedIn }) {
               slidesPerView: 3,
               spaceBetween: 12,
             },
-            1200: {
+            800: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
-            1400: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 10,
             },
@@ -41,7 +44,7 @@ function FavoriteTrack({ favoriteTracks, favoriteProps, loggedIn }) {
         >
           {favoriteTracks.map((track) => {
             return (
-              <SwiperSlide key={track.id}>
+              <SwiperSlide key={track.name}>
                 <TrackCard
                   data={track}
                   buttonText="Unfavorite"

@@ -24,7 +24,7 @@ function TopTracks({ id, token, favoriteProps, loggedIn }) {
           340: {
             slidesPerView: 1,
           },
-          450: {
+          425: {
             slidesPerView: 2,
             spaceBetween: 10,
           },

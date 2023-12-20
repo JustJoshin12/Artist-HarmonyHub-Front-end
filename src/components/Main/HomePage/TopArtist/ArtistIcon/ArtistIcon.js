@@ -1,8 +1,7 @@
 import ArtistAddButton from "./ArtistAddBtn";
 import ArtistDeleteButton from "./ArtistDeleteBtn";
 
-function ArtistIcon({ data, section, favoriteProps, loggedIn}) {
-  
+function ArtistIcon({ data, section, favoriteProps, loggedIn }) {
   const image = () => {
     if (section === "favorite") {
       return data.image;
@@ -20,12 +19,33 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn}) {
   };
 
   const likeBtn = () => {
-    if(section === "favorite"){
-      return( <ArtistDeleteButton onDelete={favoriteProps.onDeleteArtist} data={data}/>)
+    if (section === "favorite") {
+      return (
+        <ArtistDeleteButton
+          onDelete={favoriteProps.onDeleteArtist}
+          data={data}
+        />
+      );
     } else {
-      return(<ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data}/>)
+      return <ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data} />;
     }
-  }
+  };
+
+  const convertToStatNumber = () => {
+
+    let num = followers();
+
+    if (num < 1000) {
+      return num.toString();
+    } else if (num < 1000000) {
+      return Math.floor(num / 1000) + "k";
+    } else if (num < 1000000000) {
+      return Math.floor(num / 1000000) + "million";
+    } else {
+      return Math.floor(num / 1000000000) + "billion";
+    }
+
+  };
 
   return (
     <div className="flex items-center flex-col">
@@ -46,17 +66,10 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn}) {
           </h3>
           {loggedIn && likeBtn()}
         </div>
-        <p className="font-semibold">Followers: {followers()}</p>
+        <p className="font-semibold">Followers: {convertToStatNumber()}</p>
       </div>
     </div>
   );
 }
 
 export default ArtistIcon;
-
-
-// {section === "favorite" ? (
-//   <ArtistDeleteButton onDelete={favoriteProps.onDeleteArtist} data={data}/>
-// ) : (
-//   <ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data}/>
-// )}

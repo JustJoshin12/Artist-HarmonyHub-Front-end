@@ -26,7 +26,7 @@ import {
   deleteFavoriteTrack,
   deleteFavoriteArtist,
 } from "../../utils/api";
-import arrow from "../../images/uparrow.png"
+import arrow from "../../images/uparrow.png";
 
 function App() {
   const history = useHistory();
@@ -61,11 +61,9 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // For smooth scrolling animation
+      behavior: "smooth", 
     });
   };
-
-  
 
   useEffect(() => {
     getToken()
@@ -125,29 +123,28 @@ function App() {
   }, [loggedIn, history]);
 
   useEffect(() => {
-    if(loggedIn){
-    getFavoriteArtists()
-      .then((res) => {
-        setFavoriteArtists(res);
-      })
-      .catch((err) => {
-        console.error(err);
+    if (loggedIn) {
+      getFavoriteArtists()
+        .then((res) => {
+          setFavoriteArtists(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      getFavoriteTracks().then((res) => {
+        setFavoriteTracks(res);
       });
-    getFavoriteTracks()
-    .then((res) => {
-      setFavoriteTracks(res)
-    })
-    getFavoriteAlbums()
-    .then((res) => {
-      setFavoriteAlbums(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-  } else {
+      getFavoriteAlbums()
+        .then((res) => {
+          setFavoriteAlbums(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
       return;
     }
-  },[loggedIn]);
+  }, [loggedIn]);
 
   useEffect(() => {
     const scrollListener = () => {
@@ -164,7 +161,7 @@ function App() {
       window.removeEventListener("scroll", scrollListener);
     };
   }, []);
-  
+
   const handleLogOut = () => {
     setLoggedIn(false);
     localStorage.removeItem("jwt");
@@ -220,88 +217,85 @@ function App() {
   };
 
   const onDeleteArtist = (data) => {
-     deleteFavoriteArtist(data)
-     .then(() => {
-      const newFavoriteArtists = favoriteArtists.filter((artist) => {
-        return artist._id !== data._id;
+    deleteFavoriteArtist(data)
+      .then(() => {
+        const newFavoriteArtists = favoriteArtists.filter((artist) => {
+          return artist._id !== data._id;
+        });
+        setFavoriteArtists(newFavoriteArtists);
+      })
+      .catch((err) => {
+        console.error(err.status);
       });
-      setFavoriteArtists(newFavoriteArtists);
-     })
-     .catch((err) => {
-      console.error(err.status)
-     })
   };
 
-  const onAddArtist = ({name, image, followers}) => {
-     addFavortieArtist({name, image, followers})
-     .then((data) => {
-      setFavoriteArtists([data, ...favoriteArtists]);
-     })
-     .catch((err) => {
-      console.error(err.status)
-     })
+  const onAddArtist = ({ name, image, followers }) => {
+    addFavortieArtist({ name, image, followers })
+      .then((data) => {
+        setFavoriteArtists([data, ...favoriteArtists]);
+      })
+      .catch((err) => {
+        console.error(err.status);
+      });
   };
-
 
   const onDeleteTrack = (data) => {
     deleteFavoriteTrack(data)
-    .then(() => {
-     const newFavoriteTracks = favoriteTracks.filter((track) => {
-       return track._id !== data._id;
-     });
-     setFavoriteTracks(newFavoriteTracks);
-    })
-    .catch((err) => {
-     console.error(err.status)
-    })
- };
+      .then(() => {
+        const newFavoriteTracks = favoriteTracks.filter((track) => {
+          return track._id !== data._id;
+        });
+        setFavoriteTracks(newFavoriteTracks);
+      })
+      .catch((err) => {
+        console.error(err.status);
+      });
+  };
 
- const onAddTrack = (data) => {
+  const onAddTrack = (data) => {
     addFavortieTrack(data)
-    .then((data) => {
-     setFavoriteTracks([ ...favoriteTracks, data]);
-    })
-    .catch((err) => {
-     console.error(err.status)
-    })
- };
+      .then((data) => {
+        setFavoriteTracks([...favoriteTracks, data]);
+      })
+      .catch((err) => {
+        console.error(err.status);
+      });
+  };
 
- const onDeleteAlbum = (data) => {
-  deleteFavoriteAlbum(data)
-  .then(() => {
-   const newFavoriteAlbums = favoriteAlbums.filter((album) => {
-     return album._id !== data._id;
-   });
-   setFavoriteAlbums(newFavoriteAlbums);
-  })
-  .catch((err) => {
-   console.error(err.status)
-  })
-};
+  const onDeleteAlbum = (data) => {
+    deleteFavoriteAlbum(data)
+      .then(() => {
+        const newFavoriteAlbums = favoriteAlbums.filter((album) => {
+          return album._id !== data._id;
+        });
+        setFavoriteAlbums(newFavoriteAlbums);
+      })
+      .catch((err) => {
+        console.error(err.status);
+      });
+  };
 
-const onAddAlbum = (data) => {
-  addFavortieAlbum(data)
-  .then((data) => {
-   setFavoriteAlbums([data, ...favoriteAlbums]);
-  })
-  .catch((err) => {
-   console.error(err.status)
-  })
-};
+  const onAddAlbum = (data) => {
+    addFavortieAlbum(data)
+      .then((data) => {
+        setFavoriteAlbums([data, ...favoriteAlbums]);
+      })
+      .catch((err) => {
+        console.error(err.status);
+      });
+  };
 
-const favoriteProps = {
-  onAddAlbum,
-  onAddArtist,
-  onAddTrack,
-  onDeleteAlbum,
-  onDeleteArtist,
-  onDeleteTrack,
-  favoriteAlbums: favoriteAlbums,
-  favoriteArtists: favoriteArtists,
-  favoriteTracks: favoriteTracks,
-};
-
-
+  const favoriteProps = {
+    onAddAlbum,
+    onAddArtist,
+    onAddTrack,
+    onDeleteAlbum,
+    onDeleteArtist,
+    onDeleteTrack,
+    favoriteAlbums: favoriteAlbums,
+    favoriteArtists: favoriteArtists,
+    favoriteTracks: favoriteTracks,
+  };
 
   return (
     <UserDataContext.Provider value={currentUser}>
@@ -323,13 +317,13 @@ const favoriteProps = {
         />
         <Footer />
         {isVisible && (
-        <button
-          className="text-base  font-[Poppins] fixed bottom-4 right-4 2xl:right-10 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onClick={scrollToTop}
-        >
-          Scroll to top
-        </button>
-      )}
+          <button
+            className="text-base  font-[Poppins] fixed bottom-4 right-4 2xl:right-10 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onClick={scrollToTop}
+          >
+            Scroll to top
+          </button>
+        )}
         {activeModal === "edit" && (
           <EditProfileModal
             onClose={handleCloseModal}

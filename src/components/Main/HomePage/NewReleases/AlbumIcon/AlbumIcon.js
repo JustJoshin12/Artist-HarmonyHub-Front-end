@@ -44,7 +44,7 @@ function AlbumIcon({ data, section, buttonText, favoriteProps, loggedIn }) {
 
 
   return (
-    <div className="card w-[290px] bg-gray-700/50 shadow-lg shadow-white/50 md:w-80 hover:scale-105 ease-in-out duration-200">
+    <div className="card w-[290px] bg-gray-800/40 shadow-lg shadow-white/50 md:w-80 hover:scale-105 ease-in-out duration-200 hover:bg-gray-400 hover:text-black">
       <figure className="px-8 py-8">
         <img
           src={image()}

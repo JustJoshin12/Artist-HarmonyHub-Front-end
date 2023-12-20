@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function NavBar({ onEdit, onLogOut, loggedIn }) {
   return (
-    <div className="navbar mt-5 bg-black col-span-2">
+    <div className="navbar mt-5 col-span-2 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div

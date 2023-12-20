@@ -50,7 +50,7 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
         >
           {favoriteArtists.map((artist) => {
             return (
-              <SwiperSlide key={artist.name}>
+              <SwiperSlide>
                 <ArtistIcon
                   key={artist.id}
                   data={artist}

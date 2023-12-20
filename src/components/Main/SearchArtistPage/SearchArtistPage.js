@@ -12,12 +12,15 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
 
   const handleSearch = (searchTerm) => {
     getArtistId(token, searchTerm)
-    .then((data) => {
-      setSearchHistory(data.artists.items[0].id);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+      .then((data) => {
+        setSearchHistory(data.artists.items[0].id);
+      })
+      .catch((err) => {
+        console.error(err);
+        if (err.status === 401) {
+          console.log("Refresh your page");
+        }
+      });
   };
 
   return (
@@ -36,10 +39,30 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
         </div>
       ) : (
         <div className="mx-auto max-w-[290px] min-[420px]:max-w-[400px] sm:max-w-[600px] md:max-w-[730px] lg:max-w-[950px] xl:max-w-[1200px] 2xl:max-w-[1300px]">
-          <ArtistHero id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
-          <TopTracks id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
-          <ArtistAlbums id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
-          <RelatedArtists id={searchHistory} token={token} favoriteProps={favoriteProps} loggedIn={loggedIn}/>
+          <ArtistHero
+            id={searchHistory}
+            token={token}
+            favoriteProps={favoriteProps}
+            loggedIn={loggedIn}
+          />
+          <TopTracks
+            id={searchHistory}
+            token={token}
+            favoriteProps={favoriteProps}
+            loggedIn={loggedIn}
+          />
+          <ArtistAlbums
+            id={searchHistory}
+            token={token}
+            favoriteProps={favoriteProps}
+            loggedIn={loggedIn}
+          />
+          <RelatedArtists
+            id={searchHistory}
+            token={token}
+            favoriteProps={favoriteProps}
+            loggedIn={loggedIn}
+          />
         </div>
       )}
     </div>

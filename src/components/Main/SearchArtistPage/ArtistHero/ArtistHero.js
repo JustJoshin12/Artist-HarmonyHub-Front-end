@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { getArtistInfo } from "../../../../utils/SpotifyAPI/SpotifyAPI";
-
+import artistBackground from "../../../../images/artistBioBackground.png";
 
 function ArtistHero({ id, token, favoriteProps, loggedIn }) {
-  const [artistInfo, setArtistInfo] = useState(null);
+  const [artistInfo, setArtistInfo] = useState([]);
 
   useEffect(() => {
     getArtistInfo({ token, id }).then((data) => {
@@ -14,26 +14,50 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
   const handleFavoriteArtist = () => {
     favoriteProps.onAddArtist({
       name: artistInfo.name,
-      image: artistInfo?.images[0].url,
+      image: artistInfo?.images?.[0]?.url,
       followers: artistInfo?.followers?.total,
     });
   };
 
   const favoriteBtn = () => {
-    return(<button
-      className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40"
-      onClick={handleFavoriteArtist}
-    >
-      Favorite Artist
-    </button>)
-  }
+    return (
+      <button
+        className="btn btn-sm bg-white/40  xl:btn xl:bg-white/40"
+        onClick={handleFavoriteArtist}
+      >
+        Favorite Artist
+      </button>
+    );
+  };
+
+  const convertToStatNumber = () => {
+    let num = artistInfo?.followers?.total;
+
+    if (num < 1000) {
+      return num.toString();
+    } else if (num < 1000000) {
+      return Math.floor(num / 1000) + " " + "k";
+    } else if (num < 1000000000) {
+      return Math.floor(num / 1000000) + " " + "Million";
+    } else {
+      return Math.floor(num / 1000000000) + " " + "Billion";
+    }
+  };
+
+  const genreList = artistInfo?.genres;
 
   return (
     <div className="mt-[150px]">
-      <div className="hero bg-violet-800/50 rounded-badge border-2 border-white md:rounded-full">
+      <div
+        className="hero rounded-badge border-2 border-white md:rounded-badge"
+        style={{
+          backgroundImage: `url(${artistBackground})`,
+          backgroundSize: "cover",
+        }}
+      >
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src={artistInfo?.images[0].url}
+            src={artistInfo?.images?.[0]?.url}
             alt={artistInfo?.name}
             className="rounded-badge border-black border-4 shadow-2xl w-[180px] md:w-[200px] lg:w-[200px] xl:w-[300px]"
           />
@@ -51,8 +75,38 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
               <p className="mt-[10px] font-mono text-xl font-semibold tracking-wide text-black md:text-2xl lg:text-3xl xl:text-4xl">
                 Followers
                 <span className="text-white ml-6 text-lg md:text-xl xl:text-3xl">
-                  {artistInfo?.followers?.total}
+                  {convertToStatNumber()}
                 </span>
+              </p>
+              <p className="mt-[10px] font-mono text-xl font-semibold tracking-wide text-black md:text-2xl lg:text-3xl xl:text-4xl">
+                Genres:
+                {
+                  <div className="dropdown dropdown-hover">
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="btn font-[Poppins] m-1 bg-transparent border-none text-2xl md:text-3xl xl:text-4xl text-white  hover:bg-transparent hover:text-black"
+                    >
+                      More
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content z-[1] menu p-2 shadow bg-slate-600 rounded-box w-44 border-black border-2"
+                    >
+                      {genreList &&
+                        genreList.map((genre, index) => {
+                          return (
+                            <li
+                        
+                              key={index}
+                            >
+                              <a className="text-white hover:text-violet-500 font-[Oswald] font-bold text-base">{genre}</a>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                }
               </p>
             </div>
             {loggedIn && favoriteBtn()}
@@ -64,3 +118,9 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
 }
 
 export default ArtistHero;
+
+// {genres.map((genre, index) => {
+//   return (
+//   <span className="text-xl md:text-2xl lg:text-3xl font-semibold font-[Poppins] text-white" key={genre[index]}> {genre}</span>
+//   )
+// })}

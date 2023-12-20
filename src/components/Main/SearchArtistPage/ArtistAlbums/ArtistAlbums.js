@@ -22,8 +22,8 @@ function ArtistAlbums({ id, token, favoriteProps, loggedIn }) {
         </div>
       ) : (
         <ul className="grid mb-14 gap-10 justify-center   md:grid-cols-2 lg:grid-cols-3 ">
-          {artistAlbums.map((album) => {
-            return <AlbumIcon data={album} buttonText="Favorite" favoriteProps={favoriteProps} section="search albums" loggedIn={loggedIn}></AlbumIcon>;
+          {artistAlbums.map((album,index) => {
+            return <AlbumIcon key={album[index]} data={album} buttonText="Favorite" favoriteProps={favoriteProps} section="search albums" loggedIn={loggedIn}></AlbumIcon>;
           })}
         </ul>
       )}

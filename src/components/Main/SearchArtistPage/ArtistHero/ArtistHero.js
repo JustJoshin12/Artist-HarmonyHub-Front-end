@@ -119,8 +119,3 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
 
 export default ArtistHero;
 
-// {genres.map((genre, index) => {
-//   return (
-//   <span className="text-xl md:text-2xl lg:text-3xl font-semibold font-[Poppins] text-white" key={genre[index]}> {genre}</span>
-//   )
-// })}

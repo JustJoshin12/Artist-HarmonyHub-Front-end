@@ -47,20 +47,20 @@ function Header({
       )}
       </div>
       <div
-        className="hero min-h-[300px] sm:min-h-[330px] md:min-h-[450px]  rounded-badge bg-cover"
+        className=" min-h-[300px] sm:min-h-[330px] md:min-h-[450px]  rounded-badge bg-cover bg-center"
         style={{
           backgroundImage: `url(${heroImage})`,
         }}
       >
         <div className="hero-overlay bg-opacity-10 rounded-badge"></div>
-        <div className="hero-content text-center text-neutral-content flex-col">
+        <div className=" text-center text-neutral-content flex-col z-10">
         <NavBar
             onEdit={onEditModal}
             onLogOut={onLogOut}
             loggedIn={loggedIn}
           />
-          <div className="max-w-[1000px] flex flex-col lg:flex-row p-3">
-            <h1 className="text-3xl xl:text-5xl font-bold font-[Oswald] lg:mr-14 xl:mr-32 text-indigo-700 ">
+          <div className="max-w-[1000px] mx-auto flex flex-col lg:flex-row p-3">
+            <h1 className="ml-10 text-3xl xl:text-5xl font-bold font-[Oswald] lg:mr-14 xl:mr-32 text-indigo-700 ">
               Discover, Connect, Groove
             </h1>
             <p className="p-5 font-serif xl:text-lg font-semibold pt-2 opacity-60 hidden sm:block">

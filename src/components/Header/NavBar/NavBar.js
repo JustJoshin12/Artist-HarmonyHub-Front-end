@@ -74,7 +74,7 @@ function NavBar({ onEdit, onLogOut, loggedIn }) {
                 <summary className="btn btn-ghost btn-wide text-2xl">
                   Profile
                 </summary>
-                <ul className="p-2 text-black left-[50px]">
+                <ul className="p-2 text-black left-[50px] z-10">
                   <li>
                     <Link
                       to="/favorites"

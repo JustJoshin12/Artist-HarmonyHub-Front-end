@@ -21,7 +21,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && scp -r ./build/* myherodekuultra@34.121.190.232:/home/myherodekuultra/front-end"
-
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
     "daisyui": "^4.4.16",
     "gh-pages": "^6.1.0",
     "postcss": "^8.4.7",

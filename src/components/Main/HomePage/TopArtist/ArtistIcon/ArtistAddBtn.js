@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import heart from "../../../../../images/heart.png";
-import heartActive from "../../../../../images/heartActive.png";
+import React, { useState, useEffect } from "react";
+import saveIcon from "../../../../../images/saveIcon.png";
 
 const ArtistAddButton = ({ onAdd, data }) => {
-  const [isActive, setIsActive] = useState(false); 
+  const [showPopup, setShowPopup] = useState(false);
 
   const artistInfo = {
     name: data?.name,
@@ -11,21 +10,26 @@ const ArtistAddButton = ({ onAdd, data }) => {
     followers: data?.followers?.total,
   };
 
-  const toggleHeart = () => {
-    setIsActive(!isActive); 
-  };
-
   const addArtist = () => {
     onAdd(artistInfo);
-    toggleHeart(); 
+    setShowPopup(true);
   };
 
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => setShowPopup(false), 2000); 
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
   return (
-    <button className="hover:scale-125" onClick={addArtist}>
-      <img src={isActive ? heartActive : heart} className="w-6 h-6" alt="heart" />
-    </button>
+    <div className="relative my-auto">
+      <button className="hover:scale-125" onClick={addArtist}>
+        <img src={saveIcon} className="w-6 h-6" alt="bookmark" />
+      </button>
+      {showPopup && <div className=" absolute bg-violet-600 text-black rounded-badge p-1 font-bold font-sans left-0 text-sm">Saved</div>}
+    </div>
   );
 };
 
 export default ArtistAddButton;
-

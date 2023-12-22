@@ -25,7 +25,7 @@ const ArtistAddButton = ({ onAdd, data }) => {
   return (
     <div className="relative my-auto">
       <button className="hover:scale-125" onClick={addArtist}>
-        <img src={saveIcon} className="w-6 h-6" alt="bookmark" />
+        <img src={saveIcon} className="w-6 h-6" alt="bookmark"/>
       </button>
       {showPopup && <div className=" absolute bg-violet-600 text-black rounded-badge p-1 font-bold font-sans left-0 text-sm">Saved</div>}
     </div>

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer footer-center p-10 bg-transparent text-white md:mt-12">
       <aside>
-        <img src={logo} className="h-[70px] w-[70px]" />
+        <img src={logo} className="h-[70px] w-[70px]" alt="website logo"/>
         <div className="font-bold text-2xl mb-4">
           Artist HarmonyHub
           <p className="text-lg mt-4">

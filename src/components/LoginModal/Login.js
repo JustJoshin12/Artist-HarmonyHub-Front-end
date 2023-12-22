@@ -1,33 +1,25 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function LoginModal({ onClose, isOpen, handleLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin({
-      email: email,
-      password: password,
+      email: values.email,
+      password: values.password,
     });
     onClose();
   };
 
   useEffect(() => {
     if (isOpen) {
-      setEmail("");
-      setPassword("");
+      resetForm()
     }
-  }, [isOpen]);
+  }, [isOpen,resetForm]);
 
   return (
     <ModalWithForm
@@ -45,8 +37,8 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
           name="email"
           required
           placeholder="email"
-          value={email}
-          onChange={handleEmailChange}
+          value={values.email || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
       </label>
@@ -59,8 +51,8 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
           name="password"
           required
           placeholder="password"
-          value={password}
-          onChange={handlePasswordChange}
+          value={values.password || ""}
+          onChange={handleChange}
           autoComplete="current-password"
           className="input bg-transparent border-violet-800 border-2 w-full"
         />

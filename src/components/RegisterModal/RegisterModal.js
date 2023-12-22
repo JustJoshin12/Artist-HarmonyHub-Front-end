@@ -1,61 +1,32 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function RegisterModal({ onClose, isOpen, handleRegistration}) {
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [avatar, setAvatar] = useState("");
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      name: name,
-      userName: userName,
-      password: password,
-      email: email,
-      avatar: avatar,
-    })
+
+    if (!isValid) return;
+
     handleRegistration({
-      name: name,
-      userName: userName,
-      password: password,
-      email: email,
-      avatar: avatar,
+      name: values.name,
+      userName: values.username,
+      password: values.password,
+      email: values.email,
+      avatar: values.avatar,
     });
     onClose();
   };
 
   useEffect(() => {
     if (isOpen) {
-      setName("");
-      setUserName("");
-      setPassword("");
-      setEmail("");
-      setAvatar("");
+      resetForm()
     }
-  }, [isOpen]);
+  }, [isOpen,resetForm]);
 
   return (
     <ModalWithForm
@@ -71,12 +42,15 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
         <input
           type="text"
           name="name"
+          minLength="4"
+          maxLength="30"
           required
           placeholder="Name"
-          value={name}
-          onChange={handleNameChange}
+          value={values.name || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
       </label>
       <label className="my-1 md:my-3">
         <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
@@ -85,13 +59,16 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
         <input
           type="text"
           name="username"
+          minLength="4"
+          maxLength="30"
           required
           placeholder="UserName"
           autoComplete="username"
-          value={userName}
-          onChange={handleUserNameChange}
+          value={values.username}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.username && <div className="m-1 text-error">{errors.username}</div>}
       </label>
       <label className="my-1 md:my-3">
         <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
@@ -103,10 +80,11 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           autoComplete="current-password"
           required
           placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
+          value={values.password}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.password && <div className="m-1 text-error">{errors.password}</div>}
       </label>
       <label className="my-1 md:my-3">
         <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
@@ -117,10 +95,11 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           name="email"
           required
           placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
+          value={values.email || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.email && <div className="m-1 text-error">{errors.email}</div>}
       </label>
       <label className="my-1 md:my-3">
         <p className="mb-1 md:mb-4 md:text-xl font-[Poppins] font-bold tracking-wider">
@@ -131,10 +110,11 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
           name="avatar"
           required
           placeholder="URL"
-          value={avatar}
-          onChange={handleAvatarChange}
+          value={values.avatar || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.avatar && <div className="m-1 text-error">{errors.avatar}</div>}
       </label>
     </ModalWithForm>
   );

@@ -131,8 +131,12 @@ function App() {
         .catch((err) => {
           console.error(err);
         });
-      getFavoriteTracks().then((res) => {
+      getFavoriteTracks()
+      .then((res) => {
         setFavoriteTracks(res);
+      })
+      .catch((err) => {
+        console.error(err);
       });
       getFavoriteAlbums()
         .then((res) => {
@@ -236,6 +240,7 @@ function App() {
       })
       .catch((err) => {
         console.error(err.status);
+        return err.status;
       });
   };
 
@@ -259,6 +264,7 @@ function App() {
       })
       .catch((err) => {
         console.error(err.status);
+        
       });
   };
 

@@ -1,40 +1,29 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function EditProfileModal({ onClose, isOpen, handleUpdate }) {
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [avatar, setAvatar] = useState("");
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValid) return;
+
     handleUpdate({
-      name: name,
-      avatar: avatar,
-      userName: userName,
+      name: values.name,
+      avatar: values.avatar,
+      userName: values.username,
     });
+
     onClose();
   };
 
   useEffect(() => {
     if (isOpen) {
-      setName("");
-      setAvatar("");
-      setUserName("");
+      resetForm();
     }
-  }, [isOpen]);
+  }, [isOpen, resetForm]);
 
   return (
     <ModalWithForm
@@ -50,13 +39,17 @@ function EditProfileModal({ onClose, isOpen, handleUpdate }) {
         <input
           type="text"
           name="name"
+          minLength="4"
+          maxLength="30"
           required
           placeholder="Name"
-          value={name}
-          onChange={handleNameChange}
+          value={values.name || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
       </label>
+
       <label className="my-3">
         <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
           UserName
@@ -64,12 +57,15 @@ function EditProfileModal({ onClose, isOpen, handleUpdate }) {
         <input
           type="text"
           name="username"
+          minLength="4"
+          maxLength="30"
           required
           placeholder="Username"
-          value={userName}
-          onChange={handleUserNameChange}
+          value={values.username || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.username && <div className="m-1 text-error">{errors.username}</div>}
       </label>
       <label className="my-3">
         <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
@@ -80,10 +76,11 @@ function EditProfileModal({ onClose, isOpen, handleUpdate }) {
           name="avatar"
           required
           placeholder="URL"
-          value={avatar}
-          onChange={handleAvatarChange}
+          value={values.avatar || ""}
+          onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.avatar && <div className="m-1 text-error">{errors.avatar}</div>}
       </label>
     </ModalWithForm>
   );

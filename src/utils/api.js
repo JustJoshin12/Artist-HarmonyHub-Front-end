@@ -3,7 +3,7 @@ const baseUrl = process.env.NODE_ENV === 'production'
   : 'http://localhost:3001';
 
 export const checkResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  return res.ok ? res.json() : Promise.reject(res.status);
 };
 
 export const editUserProfile = ({ name, avatar, userName }) => {

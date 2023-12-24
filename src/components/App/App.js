@@ -13,7 +13,7 @@ import {
 } from "../../utils/SpotifyAPI/SpotifyAPI";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { checkToken, register, signin } from "../../utils/auth";
-import UserDataContext from "../contexts/userDataContext";
+import UserDataContext from "../../contexts/userDataContext";
 import {
   editUserProfile,
   getFavoriteArtists,
@@ -26,7 +26,7 @@ import {
   deleteFavoriteTrack,
   deleteFavoriteArtist,
 } from "../../utils/api";
-import arrow from "../../images/uparrow.png";
+import AppContext from "../../contexts/AppContext";
 
 function App() {
   const history = useHistory();
@@ -41,6 +41,8 @@ function App() {
   const [favoriteTracks, setFavoriteTracks] = useState([]);
   const [favoriteAlbums, setFavoriteAlbums] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const appContextValue = { state: { loggedIn, userData } };
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -61,7 +63,7 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", 
+      behavior: "smooth",
     });
   };
 
@@ -82,7 +84,7 @@ function App() {
     } else {
       getTopArtistData(authToken)
         .then((data) => {
-          setTopArtistData(data.artists.items);
+          setTopArtistData(data?.artists?.items);
         })
         .catch((err) => {
           console.error(err);
@@ -90,7 +92,7 @@ function App() {
 
       getNewReleaseData(authToken)
         .then((data) => {
-          setNewReleaseData(data.albums.items);
+          setNewReleaseData(data?.albums?.items);
         })
         .catch((err) => {
           console.error(err);
@@ -132,12 +134,12 @@ function App() {
           console.error(err);
         });
       getFavoriteTracks()
-      .then((res) => {
-        setFavoriteTracks(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+        .then((res) => {
+          setFavoriteTracks(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
       getFavoriteAlbums()
         .then((res) => {
           setFavoriteAlbums(res);
@@ -234,13 +236,12 @@ function App() {
   };
 
   const onAddArtist = ({ name, image, followers }) => {
-    addFavortieArtist({ name, image, followers })
+    return addFavortieArtist({ name, image, followers })
       .then((data) => {
         setFavoriteArtists([data, ...favoriteArtists]);
       })
       .catch((err) => {
-        console.error(err.status);
-        return err.status;
+        console.error(err)
       });
   };
 
@@ -264,7 +265,6 @@ function App() {
       })
       .catch((err) => {
         console.error(err.status);
-        
       });
   };
 
@@ -305,53 +305,55 @@ function App() {
 
   return (
     <UserDataContext.Provider value={currentUser}>
-      <div className="bg-black py-3 md:p-3 text-white flex flex-col items-center ">
-        <Header
-          onEditModal={handleEditModal}
-          onLoginModal={handleLoginModal}
-          onRegisterModal={handleRegisterModal}
-          loggedIn={loggedIn}
-          onLogOut={handleLogOut}
-        />
-        <Main
-          topArtistData={topArtistData}
-          newReleaseData={newReleaseData}
-          recommendations={recommendations}
-          token={authToken}
-          loggedIn={loggedIn}
-          favoriteProps={favoriteProps}
-        />
-        <Footer />
-        {isVisible && (
-          <button
-            className="text-base  font-[Poppins] fixed bottom-4 right-4 2xl:right-10 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            onClick={scrollToTop}
-          >
-            Scroll to top
-          </button>
-        )}
-        {activeModal === "edit" && (
-          <EditProfileModal
-            onClose={handleCloseModal}
-            isOpen={activeModal === "edit"}
-            handleUpdate={handleUpdate}
+      <AppContext.Provider value={appContextValue}>
+        <div className="bg-black py-3 md:p-3 text-white flex flex-col items-center ">
+          <Header
+            onEditModal={handleEditModal}
+            onLoginModal={handleLoginModal}
+            onRegisterModal={handleRegisterModal}
+            loggedIn={loggedIn}
+            onLogOut={handleLogOut}
           />
-        )}
-        {activeModal === "login" && (
-          <LoginModal
-            onClose={handleCloseModal}
-            isOpen={activeModal === "login"}
-            handleLogin={handleLogin}
+          <Main
+            topArtistData={topArtistData}
+            newReleaseData={newReleaseData}
+            recommendations={recommendations}
+            token={authToken}
+            loggedIn={loggedIn}
+            favoriteProps={favoriteProps}
           />
-        )}
-        {activeModal === "register" && (
-          <RegisterModal
-            onClose={handleCloseModal}
-            isOpen={activeModal === "register"}
-            handleRegistration={handleRegistration}
-          />
-        )}
-      </div>
+          <Footer />
+          {isVisible && (
+            <button
+              className="text-base  font-[Poppins] fixed bottom-4 right-4 2xl:right-10 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onClick={scrollToTop}
+            >
+              Scroll to top
+            </button>
+          )}
+          {activeModal === "edit" && (
+            <EditProfileModal
+              onClose={handleCloseModal}
+              isOpen={activeModal === "edit"}
+              handleUpdate={handleUpdate}
+            />
+          )}
+          {activeModal === "login" && (
+            <LoginModal
+              onClose={handleCloseModal}
+              isOpen={activeModal === "login"}
+              handleLogin={handleLogin}
+            />
+          )}
+          {activeModal === "register" && (
+            <RegisterModal
+              onClose={handleCloseModal}
+              isOpen={activeModal === "register"}
+              handleRegistration={handleRegistration}
+            />
+          )}
+        </div>
+      </AppContext.Provider>
     </UserDataContext.Provider>
   );
 }

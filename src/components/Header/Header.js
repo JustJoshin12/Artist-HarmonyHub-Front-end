@@ -1,7 +1,7 @@
 import Logo from "../../images/websiteLogo.png";
 import NavBar from "./NavBar/NavBar";
 import UserInfoIcon from "./UserInfo/UserInfo";
-import UserDataContext from "../contexts/userDataContext";
+import UserDataContext from "../../contexts/userDataContext";
 import { useContext } from "react";
 import heroImage from "../../images/heroImage.png";
 

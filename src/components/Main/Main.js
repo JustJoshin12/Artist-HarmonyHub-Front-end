@@ -41,7 +41,7 @@ function Main({
           )}
         />
 
-        <ProtectedRoute path="/favorites">
+        <ProtectedRoute path="/favorites"  favoriteProps={favoriteProps} loggedIn={loggedIn}>
           <FavoritePage
             favoriteProps={favoriteProps}
             loggedIn={loggedIn}

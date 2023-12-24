@@ -1,7 +1,8 @@
 import ArtistAddButton from "./ArtistAddBtn";
 import ArtistDeleteButton from "./ArtistDeleteBtn";
 
-function ArtistIcon({ data, section, favoriteProps, loggedIn }) {
+function ArtistIcon({ data, section, favoriteProps, loggedIn, onClick }) {
+
   const image = () => {
     if (section === "favorite") {
       return data.image;
@@ -27,7 +28,7 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn }) {
         />
       );
     } else {
-      return <ArtistAddButton onAdd={favoriteProps.onAddArtist} data={data} />;
+      return <ArtistAddButton onAdd={favoriteProps} data={data} />;
     }
   };
 
@@ -55,6 +56,7 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn }) {
             src={image()}
             alt={data.name}
             className="rounded-lg h-full w-full object-cover "
+            onClick={onClick}
           />
         </div>
       </div>

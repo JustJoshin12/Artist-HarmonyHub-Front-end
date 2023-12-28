@@ -21,12 +21,12 @@ function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
   }, [token, id]);
 
   const handleFavoriteArtist = () => {
-    setShowPopup(true);
     favoriteProps.onAddArtist({
       name: artistInfo.name,
       image: artistInfo?.images?.[0]?.url,
       followers: artistInfo?.followers?.total,
     });
+    setShowPopup(true);
   };
 
   const favoriteBtn = () => {

@@ -62,14 +62,12 @@ function App() {
     setActiveModal("register");
   };
 
-  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
 
   useEffect(() => {
     getToken()
@@ -247,7 +245,7 @@ function App() {
         setPopupMessage("saved");
       })
       .catch((err) => {
-        console.error(err)
+        console.error(err);
         if (err === 409) {
           setPopupMessage("already saved");
         } else {
@@ -273,9 +271,15 @@ function App() {
     addFavortieTrack(data)
       .then((data) => {
         setFavoriteTracks([...favoriteTracks, data]);
+        setPopupMessage("added")
       })
       .catch((err) => {
         console.error(err.status);
+        if (err === 409) {
+          setPopupMessage("already saved");
+        } else {
+          setPopupMessage("error");
+        }
       });
   };
 
@@ -331,6 +335,7 @@ function App() {
             loggedIn={loggedIn}
             onLogOut={handleLogOut}
           />
+
           <Main
             topArtistData={topArtistData}
             newReleaseData={newReleaseData}
@@ -341,6 +346,7 @@ function App() {
             popupMessage={popupMessage}
             showMessage={showPopup}
           />
+
           <Footer />
           {isVisible && (
             <button

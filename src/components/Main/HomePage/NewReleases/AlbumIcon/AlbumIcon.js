@@ -22,7 +22,6 @@ function AlbumIcon({
       buttonText === "Favorite" &&
       (section === "new releases" || section === "search albums")
     ) {
-      setShowPopup(true);
       favoriteProps.onAddAlbum({
         name: data?.name,
         image: data?.images[0]?.url,
@@ -32,6 +31,7 @@ function AlbumIcon({
     } else {
       favoriteProps.onDeleteAlbum(data);
     }
+    setShowPopup(true);
   };
 
   const image = () => {

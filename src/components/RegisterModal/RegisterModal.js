@@ -76,6 +76,7 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
         <input
           type="password"
           name="password"
+          minLength="4"
           autoComplete="current-password"
           required
           placeholder="Password"

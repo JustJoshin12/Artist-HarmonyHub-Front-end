@@ -8,7 +8,9 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!isValid) return;
+
     handleLogin({
       email: values.email,
       password: values.password,
@@ -33,17 +35,15 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
           Email
         </p>
         <input
-          type="text"
-          name="email"
-          minLength="6"
-          maxLength="30"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+          type="email"
+          name="email"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
           required
           placeholder="email"
           value={values.email || ""}
           onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
-        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
+        {errors.email && <div className="m-1 text-error">{errors.email}</div>}
       </label>
       <label className="my-3">
         <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
@@ -52,6 +52,8 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
         <input
           type="password"
           name="password"
+          minLength='4'
+          maxLength="24"
           required
           placeholder="password"
           value={values.password || ""}
@@ -59,7 +61,7 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
           autoComplete="current-password"
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
-        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
+        {errors.password && <div className="m-1 text-error">{errors.password}</div>}
       </label>
     </ModalWithForm>
   );

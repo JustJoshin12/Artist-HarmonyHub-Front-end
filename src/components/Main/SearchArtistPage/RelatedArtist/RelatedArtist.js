@@ -11,7 +11,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 function RelatedArtists({ token, id, favoriteProps, loggedIn, clickSearch, popupMessage }) {
   const [relatedArtists, setRelatedArtists] = useState([]);
-
   useEffect(() => {
     getRelatedArtist({ token, id }).then((res) => {
       setRelatedArtists(res.artists);

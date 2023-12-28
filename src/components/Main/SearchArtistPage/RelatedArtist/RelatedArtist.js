@@ -9,7 +9,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
-function RelatedArtists({ token, id, favoriteProps, loggedIn, clickSearch }) {
+function RelatedArtists({ token, id, favoriteProps, loggedIn, clickSearch, popupMessage }) {
   const [relatedArtists, setRelatedArtists] = useState([]);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function RelatedArtists({ token, id, favoriteProps, loggedIn, clickSearch }) {
           {relatedArtists.map((artist) => {
             return (
               <SwiperSlide key={artist.id} className="w-[190px]">
-                <ArtistIcon data={artist} favoriteProps={favoriteProps} loggedIn={loggedIn} onClick={clickSearch}/>
+                <ArtistIcon data={artist} favoriteProps={favoriteProps} loggedIn={loggedIn} onClick={clickSearch} popupMessage={popupMessage}/>
               </SwiperSlide>
             );
           })}

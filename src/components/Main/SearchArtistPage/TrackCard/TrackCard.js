@@ -1,11 +1,27 @@
-function TrackCard({ data, buttonText, section, favoriteProps, loggedIn }) {
+import { useState,useEffect } from "react";
+
+function TrackCard({ data, buttonText, section, favoriteProps, loggedIn, popupMessage}) {
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => setShowPopup(false), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
+
+
   const handleButtonAction = () => {
     if (buttonText === "favorite" && section === "recommendation") {
+      setShowPopup(true);
       favoriteProps.onAddTrack({
         name: data?.name,
         image: data?.images[0]?.url,
       });
     } else if (buttonText === "favorite") {
+      setShowPopup(true);
       favoriteProps.onAddTrack({
         name: data?.name,
         image: data?.album?.images[0]?.url,
@@ -32,6 +48,11 @@ function TrackCard({ data, buttonText, section, favoriteProps, loggedIn }) {
         onClick={handleButtonAction}
       >
         {buttonText}
+        {showPopup && (
+          <div className=" absolute bg-white text-black rounded p-1 font-bold font-sans text-sm">
+            {popupMessage}
+          </div>
+        )}
       </button>
     );
   };

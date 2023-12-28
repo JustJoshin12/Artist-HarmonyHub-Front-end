@@ -11,6 +11,8 @@ function Main({
   recommendations,
   favoriteProps,
   loggedIn,
+  popupMessage,
+  showMessage
 }) {
   return (
     <main className=" mt-20 mx-auto">
@@ -26,6 +28,8 @@ function Main({
               token={token}
               favoriteProps={favoriteProps}
               loggedIn={loggedIn}
+              popupMessage={popupMessage}
+              showMessage={showMessage}
             />
           )}
         />
@@ -37,6 +41,7 @@ function Main({
               token={token}
               favoriteProps={favoriteProps}
               loggedIn={loggedIn}
+              popupMessage={popupMessage}
             />
           )}
         />

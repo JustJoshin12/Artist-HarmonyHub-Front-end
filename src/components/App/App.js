@@ -43,6 +43,8 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [userData, setUserData] = useState(null);
   const appContextValue = { state: { loggedIn, userData } };
+  const [popupMessage, setPopupMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -60,12 +62,14 @@ function App() {
     setActiveModal("register");
   };
 
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
 
   useEffect(() => {
     getToken()
@@ -184,6 +188,7 @@ function App() {
     })
       .then((res) => {
         handleLogin({ email, password });
+        handleCloseModal();
       })
       .catch((err) => {
         console.log(err);
@@ -239,9 +244,15 @@ function App() {
     return addFavortieArtist({ name, image, followers })
       .then((data) => {
         setFavoriteArtists([data, ...favoriteArtists]);
+        setPopupMessage("saved");
       })
       .catch((err) => {
         console.error(err)
+        if (err === 409) {
+          setPopupMessage("already saved");
+        } else {
+          setPopupMessage("error");
+        }
       });
   };
 
@@ -285,9 +296,15 @@ function App() {
     addFavortieAlbum(data)
       .then((data) => {
         setFavoriteAlbums([data, ...favoriteAlbums]);
+        setPopupMessage("added");
       })
       .catch((err) => {
         console.error(err.status);
+        if (err === 409) {
+          setPopupMessage("already saved");
+        } else {
+          setPopupMessage("error");
+        }
       });
   };
 
@@ -321,6 +338,8 @@ function App() {
             token={authToken}
             loggedIn={loggedIn}
             favoriteProps={favoriteProps}
+            popupMessage={popupMessage}
+            showMessage={showPopup}
           />
           <Footer />
           {isVisible && (

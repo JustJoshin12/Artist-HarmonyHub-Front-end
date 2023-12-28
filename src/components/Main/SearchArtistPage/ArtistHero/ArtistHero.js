@@ -2,8 +2,17 @@ import { useState, useEffect } from "react";
 import { getArtistInfo } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 import artistBackground from "../../../../images/artistBioBackground.png";
 
-function ArtistHero({ id, token, favoriteProps, loggedIn }) {
+function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
   const [artistInfo, setArtistInfo] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => setShowPopup(false), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
 
   useEffect(() => {
     getArtistInfo({ token, id }).then((data) => {
@@ -12,6 +21,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
   }, [token, id]);
 
   const handleFavoriteArtist = () => {
+    setShowPopup(true);
     favoriteProps.onAddArtist({
       name: artistInfo.name,
       image: artistInfo?.images?.[0]?.url,
@@ -26,6 +36,11 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
         onClick={handleFavoriteArtist}
       >
         Favorite Artist
+        {showPopup && (
+          <div className=" absolute bg-white text-black rounded p-1 font-bold font-sans text-sm">
+            {popupMessage}
+          </div>
+        )}
       </button>
     );
   };
@@ -61,7 +76,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
             alt={artistInfo?.name}
             className="rounded-badge border-black border-4 shadow-2xl w-[180px] md:w-[200px] lg:w-[200px] xl:w-[300px]"
           />
-          <div className="pl-0 flex flex-col items-center  md:pl-10 md:block">
+          <div className="pl-0 flex flex-col items-center  md:pl-10 md:block relative">
             <h1 className=" font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
               {artistInfo?.name}
             </h1>
@@ -100,7 +115,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
                         
                               key={index}
                             >
-                              <a className="text-white hover:text-violet-500 font-[Oswald] font-bold text-base">{genre}</a>
+                              <p className="text-white hover:text-violet-500 font-[Oswald] font-bold text-base">{genre}</p>
                             </li>
                           );
                         })}
@@ -119,8 +134,4 @@ function ArtistHero({ id, token, favoriteProps, loggedIn }) {
 
 export default ArtistHero;
 
-// {genres.map((genre, index) => {
-//   return (
-//   <span className="text-xl md:text-2xl lg:text-3xl font-semibold font-[Poppins] text-white" key={genre[index]}> {genre}</span>
-//   )
-// })}
+

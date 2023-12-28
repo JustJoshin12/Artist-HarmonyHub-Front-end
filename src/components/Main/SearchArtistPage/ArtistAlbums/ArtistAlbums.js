@@ -2,9 +2,9 @@ import AlbumIcon from "../../HomePage/NewReleases/AlbumIcon/AlbumIcon";
 import { useState, useEffect } from "react";
 import { getArtistAlbums } from "../../../../utils/SpotifyAPI/SpotifyAPI";
 
-function ArtistAlbums({ id, token, favoriteProps, loggedIn }) {
+function ArtistAlbums({ id, token, favoriteProps, loggedIn, popupMessage }) {
   const [artistAlbums, setArtistAlbums] = useState([]);
-
+  
   useEffect(() => {
     getArtistAlbums({ token, id }).then((res) => {
       setArtistAlbums(res.items);
@@ -23,7 +23,7 @@ function ArtistAlbums({ id, token, favoriteProps, loggedIn }) {
       ) : (
         <ul className="grid mb-14 gap-10 justify-center   md:grid-cols-2 lg:grid-cols-3 ">
           {artistAlbums.map((album,index) => {
-            return <AlbumIcon key={album[index]} data={album} buttonText="Favorite" favoriteProps={favoriteProps} section="search albums" loggedIn={loggedIn}></AlbumIcon>;
+            return <AlbumIcon key={album[index]} data={album} buttonText="Favorite" favoriteProps={favoriteProps} section="search albums" loggedIn={loggedIn} popupMessage={popupMessage}></AlbumIcon>;
           })}
         </ul>
       )}

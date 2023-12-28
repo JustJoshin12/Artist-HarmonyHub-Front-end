@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import saveIcon from "../../../../../images/saveIcon.png";
 
-const ArtistAddButton = ({ onAdd, data }) => {
+const ArtistAddButton = ({ onAdd, data, popupMessage }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("");
+  
 
   const artistInfo = {
     name: data?.name,
@@ -14,12 +14,11 @@ const ArtistAddButton = ({ onAdd, data }) => {
   const addArtist = () => {
     onAdd.onAddArtist(artistInfo);
     setShowPopup(true);
-    setPopupMessage("saved");
   };
 
   useEffect(() => {
     if (showPopup) {
-      const timer = setTimeout(() => setShowPopup(false), 2000);
+      const timer = setTimeout(() => setShowPopup(false), 1500);
       return () => clearTimeout(timer);
     }
   }, [showPopup]);
@@ -30,7 +29,7 @@ const ArtistAddButton = ({ onAdd, data }) => {
         <img src={saveIcon} className="w-6 h-6" alt="bookmark" />
       </button>
       {showPopup && (
-        <div className=" absolute bg-violet-600 text-black rounded-badge p-1 font-bold font-sans left-0 text-sm">
+        <div className=" absolute bg-violet-900 text-black rounded p-1 font-bold font-sans left-0 text-sm top-0">
           {popupMessage}
         </div>
       )}

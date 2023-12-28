@@ -8,7 +8,7 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
 import TrackCard from "../../SearchArtistPage/TrackCard/TrackCard";
 
-function Recommendation({ recommendations, favoriteProps, loggedIn }) {
+function Recommendation({ recommendations, favoriteProps, loggedIn, popupMessage, showMessage }) {
   
   return (
     <section>
@@ -54,6 +54,8 @@ function Recommendation({ recommendations, favoriteProps, loggedIn }) {
                   section="recommendation"
                   favoriteProps={favoriteProps}
                   loggedIn={loggedIn}
+                  popupMessage={popupMessage}
+                  showMessage={showMessage}
                 />
               </SwiperSlide>
             );

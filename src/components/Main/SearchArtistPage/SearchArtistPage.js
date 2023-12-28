@@ -7,7 +7,7 @@ import RelatedArtists from "./RelatedArtist/RelatedArtist";
 import { useState } from "react";
 import { getArtistId } from "../../../utils/SpotifyAPI/SpotifyAPI";
 
-function SearchArtist({ token, favoriteProps, loggedIn }) {
+function SearchArtist({ token, favoriteProps, loggedIn, popupMessage }) {
   const [searchHistory, setSearchHistory] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -17,7 +17,6 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
       behavior: "smooth",
     });
   };
-
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -46,7 +45,7 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
           console.log("Refresh your page");
         }
       });
-      scrollToArtistHero();
+    scrollToArtistHero();
   };
 
   return (
@@ -74,18 +73,21 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
             token={token}
             favoriteProps={favoriteProps}
             loggedIn={loggedIn}
+            popupMessage={popupMessage}
           />
           <TopTracks
             id={searchHistory}
             token={token}
             favoriteProps={favoriteProps}
             loggedIn={loggedIn}
+            popupMessage={popupMessage}
           />
           <ArtistAlbums
             id={searchHistory}
             token={token}
             favoriteProps={favoriteProps}
             loggedIn={loggedIn}
+            popupMessage={popupMessage}
           />
           <RelatedArtists
             clickSearch={clickSearch}
@@ -93,6 +95,7 @@ function SearchArtist({ token, favoriteProps, loggedIn }) {
             token={token}
             favoriteProps={favoriteProps}
             loggedIn={loggedIn}
+            popupMessage={popupMessage}
           />
         </div>
       )}

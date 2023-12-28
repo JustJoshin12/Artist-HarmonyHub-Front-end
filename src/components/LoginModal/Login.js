@@ -8,11 +8,11 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValid) return;
     handleLogin({
       email: values.email,
       password: values.password,
     });
-    onClose();
   };
 
   useEffect(() => {
@@ -35,12 +35,15 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
         <input
           type="text"
           name="email"
+          minLength="6"
+          maxLength="30"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
           required
           placeholder="email"
           value={values.email || ""}
           onChange={handleChange}
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
       </label>
       <label className="my-3">
         <p className="mb-4 text-xl font-[Poppins] font-bold tracking-wider">
@@ -56,6 +59,7 @@ function LoginModal({ onClose, isOpen, handleLogin }) {
           autoComplete="current-password"
           className="input bg-transparent border-violet-800 border-2 w-full"
         />
+        {errors.name && <div className="m-1 text-error">{errors.name}</div>}
       </label>
     </ModalWithForm>
   );

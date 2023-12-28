@@ -1,7 +1,7 @@
 import ArtistAddButton from "./ArtistAddBtn";
 import ArtistDeleteButton from "./ArtistDeleteBtn";
 
-function ArtistIcon({ data, section, favoriteProps, loggedIn, onClick }) {
+function ArtistIcon({ data, section, favoriteProps, loggedIn, onClick, popupMessage }) {
 
   const image = () => {
     if (section === "favorite") {
@@ -28,7 +28,7 @@ function ArtistIcon({ data, section, favoriteProps, loggedIn, onClick }) {
         />
       );
     } else {
-      return <ArtistAddButton onAdd={favoriteProps} data={data} />;
+      return <ArtistAddButton onAdd={favoriteProps} data={data} popupMessage={popupMessage}/>;
     }
   };
 

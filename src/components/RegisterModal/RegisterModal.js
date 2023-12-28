@@ -19,7 +19,6 @@ function RegisterModal({ onClose, isOpen, handleRegistration}) {
       email: values.email,
       avatar: values.avatar,
     });
-    onClose();
   };
 
   useEffect(() => {

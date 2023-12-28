@@ -15,8 +15,6 @@ function EditProfileModal({ onClose, isOpen, handleUpdate }) {
       avatar: values.avatar,
       userName: values.username,
     });
-
-    onClose();
   };
 
   useEffect(() => {

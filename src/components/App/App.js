@@ -19,9 +19,9 @@ import {
   getFavoriteArtists,
   getFavoriteAlbums,
   getFavoriteTracks,
-  addFavortieTrack,
-  addFavortieArtist,
-  addFavortieAlbum,
+  addFavoriteTrack,
+  addFavoriteArtist,
+  addFavoriteAlbum,
   deleteFavoriteAlbum,
   deleteFavoriteTrack,
   deleteFavoriteArtist,
@@ -238,14 +238,13 @@ function App() {
       });
   };
 
-  const onAddArtist = ({ name, image, followers }) => {
-    return addFavortieArtist({ name, image, followers })
+  const onAddArtist = ({ name, image, followers, spotifyId }) => {
+    return addFavoriteArtist({ name, image, followers, spotifyId })
       .then((data) => {
         setFavoriteArtists([data, ...favoriteArtists]);
         setPopupMessage("saved");
       })
       .catch((err) => {
-        console.error(err);
         if (err === 409) {
           setPopupMessage("already saved");
         } else {
@@ -268,13 +267,12 @@ function App() {
   };
 
   const onAddTrack = (data) => {
-    addFavortieTrack(data)
+    addFavoriteTrack(data)
       .then((data) => {
         setFavoriteTracks([...favoriteTracks, data]);
-        setPopupMessage("added")
+        setPopupMessage("added");
       })
       .catch((err) => {
-        console.error(err.status);
         if (err === 409) {
           setPopupMessage("already saved");
         } else {
@@ -297,13 +295,12 @@ function App() {
   };
 
   const onAddAlbum = (data) => {
-    addFavortieAlbum(data)
+    addFavoriteAlbum(data)
       .then((data) => {
         setFavoriteAlbums([data, ...favoriteAlbums]);
         setPopupMessage("added");
       })
       .catch((err) => {
-        console.error(err.status);
         if (err === 409) {
           setPopupMessage("already saved");
         } else {

@@ -12,7 +12,7 @@ function Main({
   favoriteProps,
   loggedIn,
   popupMessage,
-  showMessage
+  showMessage,
 }) {
   return (
     <main className=" mt-20 mx-auto">

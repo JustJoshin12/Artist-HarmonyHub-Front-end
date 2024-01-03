@@ -55,7 +55,7 @@ export const getFavoriteArtists = () => {
   });
 };
 
-export const addFavortieArtist = ({ name, image, followers }) => {
+export const addFavoriteArtist = ({ name, image, followers, spotifyId }) => {
   return fetch(`${baseUrl}/favoriteArtists`, {
     method: "POST",
     headers: {
@@ -66,13 +66,14 @@ export const addFavortieArtist = ({ name, image, followers }) => {
       name: name,
       image: image,
       followers: followers,
+      spotifyId: spotifyId,
     }),
   }).then((res) => {
     return checkResponse(res);
   });
 };
 
-export const addFavortieTrack = ({ name, image }) => {
+export const addFavoriteTrack = ({ name, image }) => {
   return fetch(`${baseUrl}/favoriteTracks`, {
     method: "POST",
     headers: {
@@ -88,7 +89,7 @@ export const addFavortieTrack = ({ name, image }) => {
   });
 };
 
-export const addFavortieAlbum = ({ name, image, artist, totalTracks }) => {
+export const addFavoriteAlbum = ({ name, image, artist, totalTracks }) => {
   return fetch(`${baseUrl}/favoriteAlbums`, {
     method: "POST",
     headers: {
@@ -119,7 +120,7 @@ export const deleteFavoriteTrack = (track) => {
 };
 
 export const deleteFavoriteArtist = (artist) => {
-  return fetch(`${baseUrl}/favoriteArtists/${artist._id}`, {
+  return fetch(`${baseUrl}/favoriteArtists/${artist.name}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

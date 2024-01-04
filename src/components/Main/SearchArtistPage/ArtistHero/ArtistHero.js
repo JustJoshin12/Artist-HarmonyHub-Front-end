@@ -13,6 +13,8 @@ function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
     }
   }, [showPopup]);
 
+  console.log(artistInfo)
+
 
   useEffect(() => {
     getArtistInfo({ token, id }).then((data) => {
@@ -25,6 +27,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
       name: artistInfo.name,
       image: artistInfo?.images?.[0]?.url,
       followers: artistInfo?.followers?.total,
+      spotifyId: artistInfo?.id
     });
     setShowPopup(true);
   };

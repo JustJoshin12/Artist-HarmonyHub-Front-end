@@ -108,7 +108,7 @@ export const addFavoriteAlbum = ({ name, image, artist, totalTracks }) => {
 };
 
 export const deleteFavoriteTrack = (track) => {
-  return fetch(`${baseUrl}/favoriteTracks/${track._id}`, {
+  return fetch(`${baseUrl}/favoriteTracks/${track.name}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -132,7 +132,7 @@ export const deleteFavoriteArtist = (artist) => {
 };
 
 export const deleteFavoriteAlbum = (album) => {
-  return fetch(`${baseUrl}/favoriteAlbums/${album._id}`, {
+  return fetch(`${baseUrl}/favoriteAlbums/${album.name}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

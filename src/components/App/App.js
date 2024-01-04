@@ -229,7 +229,7 @@ function App() {
     deleteFavoriteArtist(data)
       .then(() => {
         const newFavoriteArtists = favoriteArtists.filter((artist) => {
-          return artist._id !== data._id;
+          return artist.name !== data.name;
         });
         setFavoriteArtists(newFavoriteArtists);
       })

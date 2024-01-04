@@ -44,7 +44,7 @@ function TrackCard({ data, buttonText, section, favoriteProps, loggedIn, popupMe
   const favoriteBtn = () => {
     return (
       <button
-        className="btn text-md italic text-black mb-3 rounded-full h-7 bg-black/50"
+        className="btn text-md italic text-white mb-3 rounded-full h-7 bg-black/50 hover:text-black"
         onClick={handleButtonAction}
       >
         {buttonText}

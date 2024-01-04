@@ -52,7 +52,7 @@ function FavoriteArtist({ favoriteArtists, favoriteProps, loggedIn }) {
             return (
               <SwiperSlide>
                 <ArtistIcon
-                  key={artist.id}
+                  key={artist.name}
                   data={artist}
                   section="favorite"
                    favoriteProps={favoriteProps}

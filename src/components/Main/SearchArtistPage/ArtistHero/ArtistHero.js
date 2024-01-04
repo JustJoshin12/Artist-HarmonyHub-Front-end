@@ -115,7 +115,7 @@ function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
                         
                               key={index}
                             >
-                              <p className="text-white hover:text-violet-500 font-[Oswald] font-bold text-base">{genre}</p>
+                              <span className="text-white hover:text-violet-500 font-[Oswald] font-bold text-base">{genre}</span>
                             </li>
                           );
                         })}

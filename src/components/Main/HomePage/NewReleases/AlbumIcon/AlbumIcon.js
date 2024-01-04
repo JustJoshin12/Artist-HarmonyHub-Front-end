@@ -66,7 +66,7 @@ function AlbumIcon({
       >
         {buttonText}
         {showPopup && (
-          <div className=" absolute bg-violet-900 text-black rounded p-1 font-bold font-sans text-sm">
+          <div className=" absolute bg-black text-white rounded p-1 font-bold font-sans text-sm">
             {popupMessage}
           </div>
         )}

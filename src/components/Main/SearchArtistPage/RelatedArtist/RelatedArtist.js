@@ -21,7 +21,7 @@ function RelatedArtists({ token, id, favoriteProps, loggedIn, clickSearch, popup
   return (
     <div className="">
       <p className="text-4xl font-[Poppins] font-semibold mb-10">
-        Related Artist
+        Related Artist <span className="text-lg pl-3">Click Image to search artist</span>
       </p>
       {relatedArtists.length === 0 ? (
         <div className="mt-4">

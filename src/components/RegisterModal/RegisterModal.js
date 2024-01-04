@@ -1,5 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function RegisterModal({ onClose, isOpen, handleRegistration}) {

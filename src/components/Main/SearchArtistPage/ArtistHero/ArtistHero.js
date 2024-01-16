@@ -13,7 +13,6 @@ function ArtistHero({ id, token, favoriteProps, loggedIn, popupMessage }) {
     }
   }, [showPopup]);
 
-  console.log(artistInfo)
 
 
   useEffect(() => {
